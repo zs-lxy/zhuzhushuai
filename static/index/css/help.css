@@ -1,0 +1,144 @@
+
+/* CSS Document */
+.wrapa {
+	MARGIN: 0px auto; WIDTH: 1000px; CLEAR: both
+}
+.wrapa:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "\0020"
+}
+
+.col_2_a:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "\0020"
+}
+.col_2_a {
+	WIDTH: 190px; FLOAT: left; OVERFLOW: hidden
+}
+.col_2_b:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "\0020"
+}
+.col_2_b {
+	WIDTH: 780px; FLOAT: right
+}
+.clearfix:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "\0020"
+}
+.clearfix {
+	ZOOM: 1
+}
+.help_box {
+	MARGIN-TOP: 10px
+}
+.help_box SPAN {
+	COLOR: #333
+}
+.m_left {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; MARGIN-BOTTOM: 8px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid
+}
+.m_left H3 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 50px; HEIGHT: 50px; FONT-WEIGHT: bold
+}
+.m_left H3 A {
+	TEXT-INDENT: -999px; DISPLAY: block; BACKGROUND: url(../http://www.tonlion.com/themes/tonlion/images/u_top.png) no-repeat left top; HEIGHT: 50px
+}
+.m_left H3.help_t {
+	BACKGROUND: url(../image/h_top.png) no-repeat left top
+}
+.m_left H3.about_t {
+	BACKGROUND: url(http://www.tonlion.com/themes/tonlion/images/a_top.png) no-repeat left top
+}
+.m_left H4 {
+	BORDER-BOTTOM: #ddd 1px solid; LINE-HEIGHT: 30px; PADDING-LEFT: 10px; BACKGROUND: #f5f5f5; HEIGHT: 30px; BORDER-TOP: #ddd 1px solid; FONT-WEIGHT: bold
+}
+.m_left .m_menu UL {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+.m_left .m_menu UL LI A {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 15px; WIDTH: 140px; DISPLAY: block; BACKGROUND: url(../image/btn.png) no-repeat -190px -18px; HEIGHT: 25px; OVERFLOW: hidden; TEXT-DECORATION: none
+}
+.m_left .m_menu UL LI A:hover {
+	BACKGROUND: url(../image/btn.png) no-repeat -190px 7px; COLOR: #c90000
+}
+.m_left .m_menu UL LI A.current {
+	LINE-HEIGHT: 25px; BACKGROUND: url(../image/btn.png) no-repeat -190px 7px; HEIGHT: 25px; COLOR: #c90000
+}
+.m_right2 {
+	COLOR: #000
+}
+.m_right2 H3.t {
+	BORDER-BOTTOM: #ddd 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 10px; BACKGROUND: url(http://www.tonlion.com/themes/tonlion/images/u_top.png) no-repeat right top; HEIGHT: 28px; PADDING-TOP: 30px
+}
+.m_right2 H3.tit {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 10px; BACKGROUND: #ffece6 0px 0px; HEIGHT: 60px; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 1px solid; PADDING-TOP: 10px
+}
+.m_right2 A {
+	COLOR: #005a9f
+}
+.help_con .help_t {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 10px; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.help_con .help_c1 {
+	PADDING-BOTTOM: 10px
+}
+.help_con H2 {
+	TEXT-ALIGN: left; COLOR: #c30101; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.help_con H4 {
+	TEXT-ALIGN: left; FONT-WEIGHT: bold
+}
+.help_con .p1 H4 {
+	FONT-SIZE: 14px
+}
+.help_con H3 {
+	PADDING-BOTTOM: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-WEIGHT: bold; PADDING-TOP: 7px
+}
+.help_con .help_c1 P {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 13px; PADDING-RIGHT: 0px; PADDING-TOP: 5px
+}
+.help_con .p1 {
+	PADDING-BOTTOM: 10px
+}
+.help_con STRONG {
+	FONT-WEIGHT: bold
+}
+.help_con OL {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 30px; PADDING-RIGHT: 3px; OVERFLOW: hidden; PADDING-TOP: 5px
+}
+.help_con OL.li_abc LI {
+	LIST-STYLE-POSITION: outside; LIST-STYLE-TYPE: lower-alpha
+}
+.help_con OL.li_123 LI {
+	LIST-STYLE-POSITION: outside; LIST-STYLE-TYPE: decimal
+}
+.help_con OL.li_123 LI A {
+	COLOR: #585858
+}
+.help_con OL.li_123 LI UL LI {
+	LIST-STYLE-TYPE: none; PADDING-LEFT: 15px; BACKGROUND: url(http://www.tonlion.com/themes/images/ico_02.gif) no-repeat 5px 12px; LIST-STYLE-IMAGE: none
+}
+.help_con UL LI {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+.help_con .custom_table {
+	WIDTH: 730px; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 8px
+}
+.help_con .custom_table TH {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 5px
+}
+.help_con .custom_table TD {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 5px
+}
+.help_con .custom_table TH {
+	TEXT-ALIGN: center; BACKGROUND: #f5f5f5; FONT-WEIGHT: bold
+}
+.help_con .custom_table TH.td_return {
+	TEXT-ALIGN: right
+}
+.help_con .size_category {
+	PADDING-BOTTOM: 8px
+}
+.help_con .size_category A {
+	TEXT-ALIGN: left; WIDTH: 100px; FLOAT: left; HEIGHT: 20px; OVERFLOW: hidden
+}
+.help_con .intro_title {
+	FONT-WEIGHT: bold
+}
