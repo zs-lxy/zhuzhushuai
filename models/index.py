@@ -13,6 +13,9 @@ class Product(db.Model):  # 货号表
     factory_price = db.Column(db.String(64), nullable=False)  # 出厂价
     selling_price = db.Column(db.String(64), nullable=False)  # 零售价
     digest = db.Column(db.String(512), nullable=False)  # 产品信息
+    img_url = db.Column(db.String(256), nullable=False)  # 产品图片/显示在首页的
+
+
     clicks = db.Column(db.Integer, default=0)  # 出厂日期
 
 
