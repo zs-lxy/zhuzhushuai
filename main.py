@@ -8,11 +8,14 @@ from models import db
 # 创建flask应用对象
 app = Flask(__name__)
 
+# 加载配置
+app.config.from_pyfile("config.ini")
+
 # 创建蓝图，且注册到app
 app.register_blueprint(index_blu)
 
-# 加载配置
-app.config.from_pyfile("config.ini")
+# 初始化数据库
+db.init_app(app)
 
 # 添加数据库迁移等工具
 manager = Manager(app)
