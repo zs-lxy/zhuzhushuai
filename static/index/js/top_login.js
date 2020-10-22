@@ -16,7 +16,7 @@ $(function(){
 		})
 		function checkLogin(text){
 			 $.ajax({
-                    url:" check_login.php",
+                    url:"/passport/login",
                     type: 'post',
                     dataType: 'json',
                     data: { },
@@ -36,10 +36,10 @@ $(function(){
 								var coupon_no=$("#coupon_card").val();
 								if(coupon_no ){
 									param="&N="+coupon_no;
-								} 
-								window.location.href="flow.php?step=checkout"+param;
+								}
+								// window.location.href="flow.php?step=checkout"+param;
 							}else{
-								window.location.href="user.php";
+								// window.location.href="user.php";
 							}}
 					}
                 });
@@ -65,7 +65,7 @@ $(function(){
 					  	$(this).removeClass("selected"+j);
 					  }
 				  }
-				  //// 
+				  ////
 			  });
 			  $(".login .tab_block").each(function(ids,obj){
 			        if(ids==i){
@@ -74,13 +74,13 @@ $(function(){
 						$(obj).hide();
 					}
 			   });
-			
+
 		}
 		function showLoginBox(obj){
 			easyDialog.open({
 			  container : obj,
 			  autoClose : 0,
-			  fixed : true 
+			  fixed : true
 			});
 		};
 		function reg_submit(){
@@ -91,7 +91,7 @@ $(function(){
 			 var confirm_password=$("#confirm_password").val();
 			 var captcha=$("#captcha").val();
 			 var agreement=$("#agreement").val();
-			 
+
 			  var rephone =/^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/;  // /^(1(([35][0-9])|(47)|[8][0126789]))\d{8}$/;
               var remail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 			 //过滤表单
@@ -101,7 +101,7 @@ $(function(){
 				 return false;
 			 }else if (!rephone.test(email) && !remail.test(email)) {
 				alert("请输入格式正确的手机号码或邮箱地址！");
-				 
+
 				return false;
 			}
 			 else if(!password){
@@ -120,19 +120,19 @@ $(function(){
 				 alert("请查阅并勾选用户协议");
 				 return false;
 			 }*/
-			 var url = 'user.php';
+			 var url = '/password/login';
                 $.ajax({
                     url: url,
                     type: 'post',
                     dataType: 'json',
                     data: { act:"sregister",agreement:agreement,username:email ,password:password},
                     success: function(data){
-						 
+
 						if(data.error==0){
 							_adwq.push(['_setAction',
 							  '7pxj2n',
-							  email,      
-							  '' 
+							  email,
+							  ''
 						   ]);
 							 $("#js-login-info").html('<a class="top-logout" href="user.php?act=logout">退出</a>  <span class="vip" style="display: none;"></span> <p>您好, <a href="user.php">'+email+'</a></p>')
 							 $("#js-coupon").show();
@@ -140,27 +140,27 @@ $(function(){
 							 //跳转到某页面
 						}else{
 							confirm("对不起，您输入的用户名或密码不正确！");
-						} 
+						}
                     },
                     error: function(){
-						 
-                        confirm("对不起，您输入的用户名或密码不正确！");	
+
+                        confirm("对不起，您输入的用户名或密码不正确！");
                     }
                 });
-		
+
 		}
-		
-		
-		
+
+
+
 		function login_submit(){
 			 var flag=0;
 			 var forware=window.location.href
-			 
+
 			 var username=$("#user_name").val();
 			 var passwd=$("#passwd").val();
 			 ////过滤表单
 			 //提交表单
-			 var url = 'user.php';
+			 var url = '/password/login';
                 $.ajax({
                     url: url,
                     type: 'post',
@@ -175,16 +175,16 @@ $(function(){
 							 //跳转到某页面
 						}else{
 							confirm("对不起，您输入的用户名或密码不正确！");
-						} 
+						}
                     },
                     error: function(){
 						alert(forware);
-                        confirm("对不起，您输入的用户名或密码不正确！");	
+                        confirm("对不起，您输入的用户名或密码不正确！");
                     }
                 });
-		
+
 		}
-		
+
 		/******/
 		 function checkCoupon(coupon_sn){
 				 $.ajax({
@@ -202,5 +202,5 @@ $(function(){
 							  //alert(msg.content);
 						  }
 					 }
-				}) 
+				})
 			 }
