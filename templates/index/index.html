@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        >
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="Generator" content="ECSHOP v2.7.3">
@@ -10,7 +10,7 @@
 
 
     <link href="/static/index/css/index.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="http://www.tonlion.com/js/tonlion/saved_resource"></script>
+    <script type="text/javascript" src="/static/index/js/saved_resource"></script>
     <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript">
@@ -384,7 +384,7 @@
             <dd class="login-info vip-icon" id="js-login-info">
                 <div id="append_parent"></div>
 
-                啦啦啦，欢迎来到红豆购物商城！ 【<a href="javascript:;" class="top-login" id="open_login">登录</a>|<a href="javascript:;"
+                啦啦啦，欢迎来到红豆购物商城！ <a href="javascript:;" class="top-login" id="open_login">登录</a>|<a href="javascript:;"
                                                                                                     class="top-regiter"
                                                                                                     id="open_reg">注册</a>
                 | <a href="show-Login_pc_code_101187163_htt.html"><img src="/static/index/picture/qq_login.png"
@@ -634,7 +634,7 @@
 
                     <tr>
                         <th>&nbsp;</th>
-                        <td><input class="button dl" type="button" onclick="login_submit()" value="登录"><a class="mm"
+                        <td><input class="button dl" id="login_lqy" type="button" value="登录"><a class="mm"
                                                                                                           href="javascript:;">忘记密码？</a>
                         </td>
                     </tr>
@@ -675,13 +675,13 @@
                         <td><input name="confirm_password" class="text_name" id="confirm_password" type="password"><span
                                 class="erro" id="confirm_password_info"></span></td>
                     </tr>
-                    <!--<tr>
+                    <tr>
                     <th>验证码：</th>
                     <td><input name="captcha" class="text_name" id="captcha" style="width: 80px;" type="text">
                     <img style="margin-top: -6px; vertical-align: middle; cursor: pointer;" onclick="this.src='captcha.php?'+Math.random()" alt="captcha" src="captcha.php?+Math.random()">
                     <span id="captcha_info"></span>
                     </td>
-                    </tr>-->
+                    </tr>
                     <tr>
                         <th>&nbsp;</th>
                         <td>
@@ -701,7 +701,7 @@
         </div>
     </div>
 </div>
-<script src="/static/index/js/top_login.js"></script>
+
 <!-- <div  style=" margin:0px auto;width:1130px; ">
  <h1  style="color:#F00; font-size:18px;" >&nbsp;&nbsp;&nbsp;&nbsp;春节放假通知：春节即将来临，公司将于2月3日至2月11日开始放假，具体说明如下，从1月20日起，快递发货失效就不能保证了;春节期间（2019年1月28日00:00:00至2019年2月13日23:59:59）未发货的订单将于2月15日前发出,给您带来不便请谅解。</h1>
  </div>-->
@@ -1398,33 +1398,6 @@
         </div>
     </div>
 </div>
-<script language="javascript">
-    function show(i) {
-
-        $.ajax({
-            url: " check_login.php",
-            type: 'post',
-            dataType: 'json',
-            data: {},
-            success: function (data) {
-                if (data.error == 1) {
-                    showLoginBox("imgBox");
-                    LI0(0);
-                } else {
-                    $.ajax({
-                        url: "create_coupon.php",
-                        type: 'post',
-                        dataType: 'json',
-                        data: {type: i},
-                        success: function (data) {
-                            alert(data.msg)
-                        }
-                    });
-                }
-            }
-        });
-    }
-</script>
 
 <div class="clearfix"></div>
 <div class="footer">
@@ -1452,7 +1425,7 @@
                     <li><a target="_blank" href="article-16.html">使用条款</a></li>
                     <li><a target="_blank" href="article-17.html">免责声明</a><span style="display:none;"><a
                             href="javascript:;"><img border="0"
-                                                     src="http://img.webscan.360.cn/status/pai/hash/f4099a29444050de7d75c22c685b8424"></a></span>
+                                                     src="/static/index/picture/logo.png"></a></span>
                     </li>
                 </ul>
             </div>
@@ -1482,7 +1455,7 @@
                 <script src="/static/index/js/stat-1253252508_1253252508.js" language="JavaScript"></script>
             </p>
             <a target='_blank' href='javascript:;'><img
-                    src='http://idinfo.zjaic.gov.cn//login.do?method=createLZ&id=3302003302000000004496'></a></div>
+                    src='/static/index/picture/logo.png'></a></div>
 
         <div class="foot_b"><a target="_blank" href="javascript:;" title="备案信息查询"> <img
                 src="/static/index/picture/foot-t02.jpg"> </a> <a target="_blank" href="javascript:;"> <img
@@ -1617,5 +1590,6 @@
 <script type="text/javascript" src="/static/index/js/index.js"></script>
 <script type="text/javascript" src="/static/index/js/jQuery-jcTabs.js"></script>
 <script type="text/javascript" src="/static/index/js/easydialog.min.js"></script>
+<script src="/static/index/js/top_login.js"></script>
 </body>
 </html>
