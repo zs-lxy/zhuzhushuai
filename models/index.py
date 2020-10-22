@@ -69,14 +69,14 @@ class User(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)  # 客户编号
-    name = db.Column(db.String(32), unique=True, nullable=False)  # 客户真名
-    nick_name = db.Column(db.String(32), unique=True, nullable=False)  # 客户昵称
+    name = db.Column(db.String(32), nullable=False)  # 客户真名
+    nick_name = db.Column(db.String(32), nullable=False)  # 客户昵称
     password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
-    mobile = db.Column(db.String(11), unique=True, nullable=False)  # 手机号
-    avatar_url = db.Column(db.String(256))  # 用户头像路径
+    mobile = db.Column(db.String(11), nullable=False)  # 手机号
+    avatar_url = db.Column(db.String(256),nullable=True)  # 用户头像路径
     create_time = db.Column(db.DateTime, default=datetime.now)  # 注册时间
     last_login = db.Column(db.DateTime, default=datetime.now)  # 最后一次登录时间
-    is_admin = db.Column(db.Boolean, default=False)
-    signature = db.Column(db.String(512))  # 用户签名
-    postal = db.Column(db.Integer, nullable=False)  # 邮编
-    address = db.Column(db.String(512))  # 联系地址
+    is_admin = db.Column(db.Boolean, default=0)
+    signature = db.Column(db.String(512),nullable=True)  # 用户签名
+    postal = db.Column(db.Integer, nullable=True)  # 邮编
+    address = db.Column(db.String(512),nullable=True)  # 联系地址

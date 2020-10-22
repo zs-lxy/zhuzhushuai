@@ -98,72 +98,64 @@ function showLoginBox(obj) {
         fixed: true
     });
 };
-
-function reg_submit() {
-    var flag = 0;
-    var forware = window.location.href
-    var email = $("#email").val();
-    var password = $("#password").val();
-    var confirm_password = $("#confirm_password").val();
-    var captcha = $("#captcha").val();
-    var agreement = $("#agreement").val();
-
-    var rephone = /^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/;  // /^(1(([35][0-9])|(47)|[8][0126789]))\d{8}$/;
-    var remail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
-    //过滤表单
-    //提交表单
-    if (!email) {
-        alert("账号不能为空");
-        return false;
-    } else if (!rephone.test(email) && !remail.test(email)) {
-        alert("请输入格式正确的手机号码或邮箱地址！");
-
-        return false;
-    } else if (!password) {
-        alert("密码不能为空");
-        return false;
-    } else if (!confirm_password) {
-        alert("确认密码不能为空");
-        return false;
-    } else if (confirm_password != password) {
-        alert("两次密码输入不一致");
-        return false;
-    }/*else if(!captcha){
-				 alert("验证码不能为空");
-				 return false;
-			 }else if(!agreement){
-				 alert("请查阅并勾选用户协议");
-				 return false;
-			 }*/
-    var url = 'user.php';
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {act: "sregister", agreement: agreement, username: email, password: password},
-        success: function (data) {
-
-            if (data.error == 0) {
-                _adwq.push(['_setAction',
-                    '7pxj2n',
-                    email,
-                    ''
-                ]);
-                $("#js-login-info").html('<a class="top-logout" href="user.php?act=logout">退出</a>  <span class="vip" style="display: none;"></span> <p>您好, <a href="user.php">' + email + '</a></p>')
-                $("#js-coupon").show();
-                easyDialog.close();
-                //跳转到某页面
-            } else {
-                confirm("对不起，您输入的用户名或密码不正确！");
-            }
-        },
-        error: function () {
-
-            confirm("对不起，您输入的用户名或密码不正确！");
-        }
-    });
-
-}
+//
+// function reg_submit() {
+//     var flag = 0;
+//     var forware = window.location.href
+//     var email = $("#email").val();
+//     var password = $("#password").val();
+//     var confirm_password = $("#confirm_password").val();
+//     var captcha = $("#captcha").val();
+//     var agreement = $("#agreement").val();
+//
+//     var rephone = /^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/;  // /^(1(([35][0-9])|(47)|[8][0126789]))\d{8}$/;
+//     var remail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+//     //过滤表单
+//     //提交表单
+//     if (!email) {
+//         alert("账号不能为空");
+//         return false;
+//     } else if (!rephone.test(email) && !remail.test(email)) {
+//         alert("请输入格式正确的手机号码或邮箱地址！");
+//
+//         return false;
+//     } else if (!password) {
+//         alert("密码不能为空");
+//         return false;
+//     } else if (!confirm_password) {
+//         alert("确认密码不能为空");
+//         return false;
+//     } else if (confirm_password != password) {
+//         alert("两次密码输入不一致");
+//         return false;
+//     }/*else if(!captcha){
+// 				 alert("验证码不能为空");
+// 				 return false;
+// 			 }else if(!agreement){
+// 				 alert("请查阅并勾选用户协议");
+// 				 return false;
+// 			 }*/
+//     var url = 'user.php';
+//     $.ajax({
+//         url: url,
+//         type: 'post',
+//         dataType: 'json',
+//         data: {act: "sregister", agreement: agreement, username: email, password: password},
+//         success: function (data) {
+//
+//             if (data.error == 0) {
+//               alert("登陆成功")
+//             } else {
+//                 confirm("对不起，您输入的用户名或密码不正确！");
+//             }
+//         },
+//         error: function () {
+//
+//             confirm("对不起，您输入的用户名或密码不正确！");
+//         }
+//     });
+//
+// }
 
 
 //
@@ -237,15 +229,53 @@ $(function () {
             contentType: "application/json",
             success: function (resp) {
                 if (resp.errno == '0') {
-                    alert('登录成功');
-                    window.location.href = '/index/index.html'
+                    alert(resp.errmsg);
+                    window.location.href = '/'
                 } else {
                     alert(resp.errmsg);
-                    window.location.reload()
+                    // window.location.reload()
                 }
 
             }
-            })
+        })
+    })
+
+})
+
+$(function () {
+    $("#register_zs").click(function () {
+        var mobile = $("#mobile").val();
+        var nick_name = $("#nick_name").val();
+        var password = $("#password").val();
+        var confirm_password = $("#confirm_password").val();
+        var captcha = $("#captcha").val();
+        var agreement = $("#agreement").val();
+
+        par = {
+            "mobile": mobile,
+            "password": password,
+            "confirm_password": confirm_password,
+            "captcha": captcha,
+            "agreement": agreement,
+            "nick_name": nick_name
+        }
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "/passport/register_btn",
+            data: JSON.stringify(par),
+            contentType: "application/json",
+            success: function (resp) {
+                if (resp.errno == '0') {
+                    alert(resp.errmsg);
+                    window.location.href = '/'
+                } else {
+                    alert(resp.errmsg);
+                    // window.location.reload()
+                }
+
+            }
+        })
     })
 
 })

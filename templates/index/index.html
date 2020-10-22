@@ -382,6 +382,8 @@
         </ul>
         <dl class="user-panel">
             <dd class="login-info vip-icon" id="js-login-info">
+
+                {%if not user%}
                 <div id="append_parent"></div>
 
                 啦啦啦，欢迎来到红豆购物商城！ <a href="javascript:;" class="top-login" id="open_login">登录</a>|<a href="javascript:;"
@@ -389,7 +391,10 @@
                                                                                                     id="open_reg">注册</a>
                 | <a href="show-Login_pc_code_101187163_htt.html"><img src="/static/index/picture/qq_login.png"
                                                                        style="vertical-align:middle;"></a>】
-
+                {%else%}
+                <a class="top-logout" href="/passport/log_out">退出</a>  <span class="vip" style="display: none;"></span>
+                <p>您好, <a href="/user/homepage">{{user}}</a></p>
+                {%endif%}
             </dd>
 
             <dd class="my-order">
@@ -657,13 +662,20 @@
                     <tr>
                         <th>账户名：</th>
                         <td>
-                            <input name="email" class="text_name" id="email" style="color: rgb(153, 153, 153);"
+                            <input name="email" class="text_name" id="mobile" style="color: rgb(153, 153, 153);"
                                    onfocus="if(this.value=='邮箱/手机号') this.value='';this.style.color='#333'"
                                    onblur="if(this.value=='') {this.value='邮箱/手机号';this.style.color='#999999'}"
                                    type="text" size="8" maxlength="50" value="邮箱/手机号">
                             <span class="erro" id="email_info"></span>
                         </td>
                     </tr>
+                    <tr>
+                        <th>起个名字：</th>
+                        <td><input name="password" class="text_name" id="nick_name" type="text">
+                            <span class="erro" id="nick_name_info"></span>
+                        </td>
+                    </tr>
+
                     <tr>
                         <th>设置密码：</th>
                         <td><input name="password" class="text_name" id="password" type="password">
@@ -685,7 +697,7 @@
                     <tr>
                         <th>&nbsp;</th>
                         <td>
-                            <input class="button dl" onclick="reg_submit()" type="button" value="注册">
+                            <input class="button dl" id="register_zs" type="button" value="注册">
                         </td>
                     </tr>
                     <tr>
