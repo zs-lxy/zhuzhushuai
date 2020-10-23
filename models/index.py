@@ -69,7 +69,7 @@ class User(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)  # 客户编号
-    name = db.Column(db.String(32), nullable=False)  # 客户真名
+    name = db.Column(db.String(32), nullable=True)  # 客户真名
     nick_name = db.Column(db.String(32), nullable=False)  # 客户昵称
     password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
     mobile = db.Column(db.String(11), nullable=False)  # 手机号

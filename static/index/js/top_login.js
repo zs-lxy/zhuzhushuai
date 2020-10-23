@@ -279,3 +279,29 @@ $(function () {
     })
 
 })
+
+
+// 生成一个图片验证码的编号，并设置页面中图片验证码img标签的src属性
+function generateImageCode() {
+    // 1. 生成一个编号
+    // 严格一点的使用uuid保证编号唯一， 不是很严谨的情况下，也可以使用时间戳
+    imageCodeId = generateUUID();
+
+    // 2. 拼接验证码地址
+    var imageCodeUrl = "/passport/image_code?code_id=" + imageCodeId;
+    // 3. 设置页面中图片验证码img标签的src属性
+    $(".get_pic_code").attr("src", imageCodeUrl)
+}
+
+function generateUUID() {
+    var d = new Date().getTime();
+    if (window.performance && typeof window.performance.now === "function") {
+        d += performance.now(); //use high-precision timer if available
+    }
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+}
