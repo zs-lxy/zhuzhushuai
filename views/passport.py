@@ -26,7 +26,7 @@ def login_btn():
             'errno': 0,
             'errmsg': "登录成功.....!"
         }
-        session['user_mobile'] = user.mobile
+        session['mobile'] = user.mobile
         session['nick_name'] = user.nick_name
         session['passwd'] = user.password_hash
     else:
@@ -53,7 +53,7 @@ def register_btn():
     # 验证图片验证码是否争取
     print("session的",session.get("image_code"))
     print("获取的",image_code)
-    if session.get("image_code") != image_code:
+    if str(session.get("image_code")).upper() != str(image_code).upper():
         ret = {
             "errno": 1003,
             "errmsg": "重新输入验证码"
@@ -77,11 +77,8 @@ def register_btn():
     # user.password_hash = generate_password_hash(passwd)
 
     # try:
-    print("11111111111111")
     db.session.add(user)
-    print('22222222222')
     db.session.commit()
-    print('33333333333333')
 
     # 注册成功之后，立刻认为登录成功，也就说需要进行状态保持
     session['mobile'] = user.mobile

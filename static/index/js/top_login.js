@@ -281,6 +281,9 @@ $(function () {
 })
 
 
+
+
+
 // 生成一个图片验证码的编号，并设置页面中图片验证码img标签的src属性
 function generateImageCode() {
     // 1. 生成一个编号
@@ -304,4 +307,11 @@ function generateUUID() {
         return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
     return uuid;
+}
+
+// 一般页面的iframe的高度是660
+// 新闻发布页面iframe的高度是900
+function fnSetIframeHeight(num){
+	var $frame = $('#main_frame');
+	$frame.css({'height':num});
 }
