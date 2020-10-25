@@ -21,6 +21,14 @@ def homepage():
         return render_template('index/homepage.html', user=user)
 
 
-@user_blu.route("/user/user_info")
-def user_info():
-    return render_template("index/user_info.html")
+@user_blu.route("/user/user_base_info")
+def user_base_info():
+    # 显示个人信息(个人主页的  主页)
+    return render_template("index/user_base_info.html")
+
+
+
+@user_blu.route("/user/my_order")
+def my_order():
+    # 显示个人信息(个人主页的  主页)
+    return render_template("index/my_order.html")
