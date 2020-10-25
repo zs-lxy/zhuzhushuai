@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户中心Big_ormosia 大红豆官网 - 大红豆服饰官方购物商城 - Powered by Big_ormosia</title>
+    <link href="/static/index/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/user_clips.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/layer.css" rel="stylesheet" type="text/css">
+    <!--    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">-->
+
+</head>
+<body>
+<div class="user_box">
+    <div class="u_header">
+
+        <div class="box_right">
+
+            <div class="order_tips">
+
+                <ul>
+                    <li class="vmiddle textright" style="color:#F00">提货券充值：</li>
+
+                </ul>
+
+                <div class="clear"></div>
+
+            </div>
+            <div class="order_tips">
+                <form name="vouchers" action="user.php" method="post">
+                    <table width="100%" cellspacing="0" border="0">
+                        <tbody>
+                        <tr height="30px">
+                            <td width="18%" bgcolor="#FFFFFF" align="right">提货券：</td>
+                            <td width="18%" bgcolor="#FFFFFF" align="left"><input name="voucher_num" type="text"
+                                                                                  size="25" id="voucher_num"
+                                                                                  class="inputBg"></td>
+                            <td width="10%" bgcolor="#FFFFFF" align="center">验证码：</td>
+                            <td width="28%" bgcolor="#FFFFFF" align="left"><input name="check_num" type="text" size="25"
+                                                                                  id="check_num" class="inputBg"></td>
+                            <td bgcolor="#FFFFFF" align="left"><input name="act" type="hidden" value="check_cash">
+                                <input name="submit" type="button" class="bnt_blue_1" style="border:none;" value="确定充值"
+                                       onclick="check_vouchers()">
+                            </td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </form>
+                <script language="javascript">
+                    function check_vouchers() {
+
+                        var vouchers = $("#voucher_num").val();
+                        var check_num = $("#check_num").val();
+                        if (vouchers == "" || vouchers == "") {
+                            alert("提货券号或验证码不能为空");
+                        } else {
+                            $.ajax({
+                                url: "user.php?act=check_cash&number=" + vouchers + "&check_num=" + check_num,
+                                type: 'get',
+                                dataType: 'json',
+                                data: {},
+                                success: function (result) {
+
+                                    if (result.error == 1) {
+                                        alert("提货券充值失败1，请联系管理员");
+                                    } else if (result.error == 2) {
+                                        alert("提货券充值失败，请联系管理员");
+                                    } else if (result.error == 3) {
+                                        alert("提货券充值失败，券号过期或者无效，请联系管理员");
+                                    } else if (result.error == 4) {
+                                        alert("提货券充值失败，请联系管理员");
+                                    } else if (result.error == 5) {
+                                        alert("提货券充值失败，请联系管理员");
+                                    } else {
+                                        alert("提货券充值成功");
+                                        $("#voucher_num").attr("value", "")
+                                    }
+                                }
+                            });
+                        }
+                    }
+                </script>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,16 +38,30 @@ def my_order():
     return render_template("index/my_order.html")
 
 
-@user_blu.route("/user/my_evalute")
-def my_evalute():
+@user_blu.route("/user/my_evaluate")
+def my_evaluate():
     # 我的评价
-    return render_template("index/my_evalute.html")
+    return render_template("index/my_evaluate.html")
 
 
-@user_blu.route("/user/my_coupon")
-def my_coupon():
+@user_blu.route("/user/coupon")
+def coupon():
     # 我的优惠卷
-    return render_template("index/my_coupon.html")
+    return render_template("index/coupon.html")
+
+
+@user_blu.route("/user/pick_up")
+def pick_up():
+    # 点卷充值
+    return render_template("index/pick_up.html")
+
+
+@user_blu.route("/user/cash")
+def cash():
+    # 点卷充值
+    return render_template("index/cash.html")
+
+
 
 
 @user_blu.route("/user/alter_user_info")
@@ -78,3 +92,5 @@ def leave_maessage():
 def my_collect():
     # 我的收藏
     return render_template("index/my_collect.html")
+
+

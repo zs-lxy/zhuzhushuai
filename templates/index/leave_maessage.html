@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户中心Big_ormosia 大红豆官网 - 大红豆服饰官方购物商城 - Powered by Big_ormosia</title>
+    <link href="/static/index/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/user_clips.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/layer.css" rel="stylesheet" type="text/css">
+    <!--    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">-->
+
+</head>
+<body>
+<div class="user_box">
+    <div class="u_header">
+
+
+        <div class="box_right">
+
+
+            <h5><span>我的留言</span></h5>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <form action="user.php" method="post" enctype="multipart/form-data" name="formMsg"
+                  onsubmit="return submitMsg()">
+                <style type="text/css">
+                    .order_lists tr {
+                        height: 30px;
+                        line-height: 30px;
+                        vertical-align: middle;
+                    }
+
+                    .order_lists tr td {
+                        height: 25px;
+                        line-height: 25px;
+                        vertical-align: middle;
+                        padding: 2px 5px 2px 5px;
+                    }
+                </style>
+                <table class="order_lists" width="100%" cellpadding="3" border="0">
+                    <tbody>
+                    <tr>
+                        <td width="20%" align="right">留言类型：</td>
+                        <td><input name="msg_type" type="radio" value="0" checked="checked">
+                            留言 <input type="radio" name="msg_type" value="1">
+                            投诉 <input type="radio" name="msg_type" value="2">
+                            询问 <input type="radio" name="msg_type" value="3">
+                            售后 <input type="radio" name="msg_type" value="4">
+                            求购
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="right">主题：</td>
+                        <td><input name="msg_title" type="text" size="30" class="inputBg"></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" valign="top" align="right">留言内容：</td>
+                        <td><textarea name="msg_content" cols="50" rows="4" class="B_blue" wrap="virtual"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="right">上传文件：</td>
+                        <td><input type="file" name="message_img" size="45" class="inputBg"></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td><input type="hidden" name="act" value="act_add_message">
+                            <input type="submit" value="提 交" class="bnt_bonus">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td>
+                            <font color="red">小提示：</font><br>
+                            您可以上传以下格式的文件：<br>gif、jpg、png、word、excel、txt、zip、ppt、pdf
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

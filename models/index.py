@@ -17,7 +17,7 @@ class Product(db.Model):  # 货号表
     dress_date = db.Column(db.DateTime, default=datetime.now)  # 出厂日期
     dress_status = db.Column(db.String(256), nullable=False)  # 服装状态(是否有货)
     one_category_id = db.Column(db.Integer, default=200)  # 一级分类
-    two_category_id = g_id = db.Column(db.Integer, nullable=False)  # 二级分类
+    two_category_id  = db.Column(db.Integer, nullable=False)  # 二级分类
 
 
 class Category(db.Model):
