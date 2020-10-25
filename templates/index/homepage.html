@@ -1,24 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" type="text/css" href="/static/index/css/layer.css">
     <meta name="Generator" content="ECSHOP v2.7.3">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="Keywords" content="">
     <meta name="Description" content="">
 
-    <title>用户中心Big_ormosia 大红豆官网 - 大红豆服饰官方购物商城 - Powered by Big_ormosia</title>
+    <title>用户中心_TONLION 唐狮官网 - 唐狮服饰官方购物商城 - Powered by Tonlion</title>
 
-
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="animated_favicon.gif" type="image/gif">
     <script type="text/javascript" src="/static/index/js/saved_resource"></script>
     <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">
-    <link href="/static/index/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/user_clips.css" rel="stylesheet" type="text/css">
 
 
+</head>
 <body>
-<script type="text/javascript">
-    var process_request = "正在处理您的请求...";
-</script>
+
 <!-- <div style="width:100%; background: url(/images/top_bk.jpg);background-repeat: repeat-x;">
      <div style="width:1130px; margin:0px auto; margin-bottom:2px;">
      <img src="/images/top_.jpg" />
@@ -29,44 +28,36 @@
     <div class="g-top-wrap">
         <ul class="top-links">
             <!--<li class="top-link top-home"><a href="" target="_blank">唐狮官网<i class="house"></i></a></li>
-            <li class="top-link top-link-1">
+    <li class="top-link top-link-1">
                 <a href="" bi="top2_a_1_1_1" target="_blank">59专区</a>
-            </li>
-            <li class="top-link top-link-2">
+    </li>
+    <li class="top-link top-link-2">
                 <a href="" bi="top2_a_1_1_2" target="_blank">双11活动</a>
-            </li>
-            <li class="top-link top-link-3">
+    </li>
+    <li class="top-link top-link-3">
                 <a href="" bi="top2_a_1_1_3" target="_blank">晒单</a>
                 <i class="hot"></i>
-            </li>
-            <li class="top-link top-link-4">
+    </li>
+    <li class="top-link top-link-4">
                 <a href="" bi="top2_a_1_1_4" target="_blank">微信墙</a>
-            </li>-->
+    </li>-->
         </ul>
 
         <dl class="user-panel">
             <dd class="login-info vip-icon" id="js-login-info">
-                {%if not user %}
-
                 <div id="append_parent"></div>
-                啦啦啦 欢迎来到大红豆购物商城！【<a href="javascript:;" class="top-login" id="open_login">登录</a>|<a href="javascript:;"
-                                                                                                    class="top-regiter"
-                                                                                                    id="open_reg">注册</a>
-                | <a href="javascript:;"><img src="/static/index/picture/qq_login.png"
-                                              style="vertical-align:middle;"></a>】
 
+                <a class="top-logout" href="user.php?act=logout">退出</a> <span class="vip" style="display: none;"></span>
+                <p>您好, <a href="user.php">13131402834</a></p>
             </dd>
-            {% else%}
-            <a class="top-logout" href="/passport/log_out">退出</a> <span class="vip" style="display: none;"></span>
-            <p>您好, <a href="/user/homepage">{{user.nick_name}}</a></p>
-            {%endif %}
+
             <dd class="my-order">
                 <a href="javascript:.;" bi="top2_b_1_4_1" onclick="checkLogin('user')">我的订单</a>
             </dd>
             <dd class="my-cart">
                 <div class="min-cart">
-                    <div class="min-cart-btn" id="js-min-cart"><a href="javascript:;" title="查看购物车"><i></i><a
-                            href="javascript:;" bi="top2_b_1_5_1">购物车</a> <b class="arrow"></b>
+                    <div class="min-cart-btn" id="js-min-cart"><a href="flow.php" title="查看购物车"><i></i></a><a
+                            href="flow.php" bi="top2_b_1_5_1">购物车</a> <b class="arrow"></b>
                         <div class="cart-count"><span class="cart-count-wrap"><em id="js-total-num">0 </em></span></div>
                     </div>
                     <div class="cart-count-bottom"></div>
@@ -76,7 +67,7 @@
             </dd>
             <dd class="t-dropdown help">
                 <div class="t-dropdown-box">
-                    <a href="javascript:;" class="t-menu" target="_blank" bi="top2_b_1_6_1">新手帮助<i
+                    <a href="article.php?id=11" class="t-menu" target="_blank" bi="top2_b_1_6_1">新手帮助<i
                             class="arrow"></i></a>
                     <div class="t-d-menu">
                         <ul>
@@ -98,10 +89,13 @@
 <!-- <a href="" style="position: absolute; top: 0; right: 0; z-index: 99999;">
      <img src="themes/tonlion/images/kuaidi.png" class="ie6png">
  </a>-->
+<script type="text/javascript">
+    var process_request = "正在处理您的请求...";
+</script>
 <div class="g-header">
     <div class="g-header-wrap">
         <div class="logo">
-            <a href="javascript:;" bi="logo_a_1_1_1">
+            <a href="index.php" bi="logo_a_1_1_1">
                 <img src="/static/index/picture/logo.png" width="170" height="80">
             </a>
         </div>
@@ -125,7 +119,7 @@
         <div class="header-nsearch">
             <form action="search.php" method="get" class="search-form">
                 <div class="search-input-wrap">
-                    <input id="txtKeyword" type="text" name="keywords" placeholder='搜索"T恤"试试~' value=""
+                    <input id="txtKeyword" type="text" name="keywords" placeholder="搜索&quot;T恤&quot;试试~" value=""
                            autocomplete="off" class="search-input">
                 </div>
                 <input type="submit" value="搜索" class="search-btn" bi="s_a_1_1_1">
@@ -140,14 +134,14 @@
         </div>
         <div class="header-serve">
             <!---
-                <a href="" target="_blank">
-                    <img src="themes/tonlion/images/fuw_03.jpg" alt="全场满149或满2件免运费">
-                </a>
+                  <a href="" target="_blank">
+                      <img src="themes/tonlion/images/fuw_03.jpg" alt="全场满149或满2件免运费">
+                  </a>
 
-                                <a href="" target="_blank">
-                    <img src="themes/tonlion/images/fuw_05.jpg" alt="10天无条件退换货">
-                </a>
-                ---->
+                                  <a href="" target="_blank">
+                      <img src="themes/tonlion/images/fuw_05.jpg" alt="10天无条件退换货">
+                  </a>
+                  ---->
         </div>
 
 
@@ -155,68 +149,68 @@
 </div>
 
 
-<div class="nav" style="position: relative;">
+<div class="nav" style="position: fixed;">
     <div class="wrap">
         <div class="nav-left">
             <div class="all">
                 <div class="all-title">
                     <a href="#">全部分类<em class="arrow-up"></em></a></div>
                 <div class="nav-exposed" style="display: none;">
-                    <div class="nav_new">
+                    <div class="nav_new" style="height: 330px;">
                         <h3>时尚男装</h3>
                         <div class="column first_column">
                             <h2>上装 </h2>
                             <ul>
-                                <li><a class="" href="javascript:;" target="_blank"> 短袖T恤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 短袖衬衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> POLO衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 背心</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 长袖T恤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 长袖衬衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 卫衣</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 线衫毛衣</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 西装夹克外套</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 棉衣/羽绒服</a></li>
+                                <li><a class="" href="category.php?id=276" target="_blank"> 短袖T恤</a></li>
+                                <li><a class="" href="category.php?id=278" target="_blank"> 短袖衬衫</a></li>
+                                <li><a class="" href="category.php?id=280" target="_blank"> POLO衫</a></li>
+                                <li><a class="" href="category.php?id=292" target="_blank"> 背心</a></li>
+                                <li><a class="" href="category.php?id=277" target="_blank"> 长袖T恤</a></li>
+                                <li><a class="" href="category.php?id=279" target="_blank"> 长袖衬衫</a></li>
+                                <li><a class="" href="category.php?id=283" target="_blank"> 卫衣</a></li>
+                                <li><a class="" href="category.php?id=284" target="_blank"> 线衫毛衣</a></li>
+                                <li><a class="" href="category.php?id=282" target="_blank"> 西装夹克外套</a></li>
+                                <li><a class="" href="category.php?id=281" target="_blank"> 棉衣/羽绒服</a></li>
                             </ul>
                         </div>
                         <div class="column">
                             <h2>下装 </h2>
                             <ul>
-                                <li><a class="" href="javascript:;" target="_blank"> 牛仔短裤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 休闲短裤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 牛仔长裤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 休闲长裤</a></li>
+                                <li><a class="" href="category.php?id=287" target="_blank"> 牛仔短裤</a></li>
+                                <li><a class="" href="category.php?id=293" target="_blank"> 休闲短裤</a></li>
+                                <li><a class="" href="category.php?id=285" target="_blank"> 牛仔长裤</a></li>
+                                <li><a class="" href="category.php?id=286" target="_blank"> 休闲长裤</a></li>
 
                             </ul>
                         </div>
 
 
                     </div>
-                    <div class="nav_new">
+                    <div class="nav_new" style="height: 330px;">
                         <h3>甜美女装</h3>
                         <div class="column first_column">
                             <h2>上装 </h2>
                             <ul>
-                                <li><a class="" href="javascript:;" target="_blank"> 短袖T恤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 短袖衬衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> POLO衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 背心吊带衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 连衣裙裙装</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 长袖T恤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 长袖衬衫</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 卫衣</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 线衫毛衣</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 西装夹克外套</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 棉衣/羽绒服</a></li>
+                                <li><a class="" href="category.php?id=289" target="_blank"> 短袖T恤</a></li>
+                                <li><a class="" href="category.php?id=295" target="_blank"> 短袖衬衫</a></li>
+                                <li><a class="" href="category.php?id=291" target="_blank"> POLO衫</a></li>
+                                <li><a class="" href="category.php?id=303" target="_blank"> 背心吊带衫</a></li>
+                                <li><a class="" href="category.php?id=294" target="_blank"> 连衣裙裙装</a></li>
+                                <li><a class="" href="category.php?id=290" target="_blank"> 长袖T恤</a></li>
+                                <li><a class="" href="category.php?id=296" target="_blank"> 长袖衬衫</a></li>
+                                <li><a class="" href="category.php?id=303" target="_blank"> 卫衣</a></li>
+                                <li><a class="" href="category.php?id=297" target="_blank"> 线衫毛衣</a></li>
+                                <li><a class="" href="category.php?id=298" target="_blank"> 西装夹克外套</a></li>
+                                <li><a class="" href="category.php?id=304" target="_blank"> 棉衣/羽绒服</a></li>
                             </ul>
                         </div>
                         <div class="column">
                             <h2>下装 </h2>
                             <ul>
-                                <li><a class="" href="javascript:;" target="_blank"> 牛仔短裤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 休闲短裤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 牛仔长裤</a></li>
-                                <li><a class="" href="javascript:;" target="_blank"> 休闲长裤</a></li>
+                                <li><a class="" href="category.php?id=301" target="_blank"> 牛仔短裤</a></li>
+                                <li><a class="" href="category.php?id=302" target="_blank"> 休闲短裤</a></li>
+                                <li><a class="" href="category.php?id=299" target="_blank"> 牛仔长裤</a></li>
+                                <li><a class="" href="category.php?id=300" target="_blank"> 休闲长裤</a></li>
                             </ul>
                         </div>
 
@@ -227,7 +221,7 @@
 
             <div class="channel">
                 <ul>
-                    <li class="m-home"><a href="javascript:;">商城首页</a></li>
+                    <li class="m-home"><a href="index.php">商城首页</a></li>
                     <!-- <li class="m-hot"><a href="index11man.php">男神专场</a><i class="new"></i>
                      <li class="m-hot"><a href="index11women.php">女神专场</a><i class="new"></i>-->
 
@@ -236,8 +230,12 @@
                     <!--<li class="m-dermis"><a href="">积分商城</a><i class="new"></i></li>-->
                     <!--  <li class="m-hot"><a href="search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjk6IueJm%2bS7lOijpCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0MjI4NjMwMTk7fQ==">牛仔系列</a><i class="new"></i></li>-->
                     <!-- <li class="m-hot"><a href="search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjM6IuWGrCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE1NDI3NzQ2MTQ7fQ==">冬装热卖</a></li>-->
-                    <li class="m-hot"><a href="javascript:;">男T恤</a><!--<i class="new"></i>--></li>
-                    <li class="m-hot"><a href="javascript:;">女T恤</a><!--<i class="new"></i>--></li>
+                    <li class="m-hot"><a
+                            href="search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjc6IueUt1TmgaQiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNTM0NDg4NjcyO30=">男T恤</a>
+                        <!--<i class="new"></i>--></li>
+                    <li class="m-hot"><a
+                            href="search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjc6IuWls1TmgaQiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNTM0NDg4NzA5O30=">女T恤</a>
+                        <!--<i class="new"></i>--></li>
 
                     <!--<li class="m-dermis"><a href="index_ql.php">情侣专区</a><i class="hot"></i></li>-->
                     <!--<li class="m-dermis"><a href="share_goods.php">我要晒单</a><i class="new"></i></li>-->
@@ -253,16 +251,16 @@
 
 
             <dl class="cartbar">
-                <dt class="" style="display: none;"><a href="javascript:;"><span>0</span></a></dt>
+                <dt class="" style="display: none;"><a href="flow.php"><span>0</span></a></dt>
                 <dd>
                     <div class="cartbox" style="display: none;">
                         <div class="cartbox-list"><p class="total">目前选购商品共<b>0</b>件</p>
-                            <p class="price-total"><a href="javascript:;" class="settleup">立刻结算</a> 共<b>0</b>件商品 &nbsp;&nbsp;&nbsp;&nbsp;总计<b>0</b>元
+                            <p class="price-total"><a href="flow.php" class="settleup">立刻结算</a> 共<b>0</b>件商品 &nbsp;&nbsp;&nbsp;&nbsp;总计<b>0</b>元
                             </p></div>
                     </div>
                 </dd>
             </dl>
-            <a class="settleup" rel="nofollow" href="javascript:;">
+            <a class="settleup" rel="nofollow" href="flow.php">
                 <em class="arrow-right"></em>去结算</a>
         </div>
     </div>
@@ -307,19 +305,19 @@
                     <tr>
                         <th>&nbsp;</th>
                         <td><input class="button dl" type="button" onclick="login_submit()" value="登录"><a class="mm"
-                                                                                                          href="javascript:;">忘记密码？</a>
+                                                                                                          href="user/get_password.html">忘记密码？</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </form>
             <!--<div class="other_log">
-             <h3>使用合作伙伴账号登录唐狮：</h3>
-             <a class="qq" href="user/qq.html"></a>
-             <a class="sina" href="user/weibo.html"></a>
-             <a class="zfb" href="user/alipay.html"></a>
-             <div id="ucdata" style="display:none;" ></div>
-            </div>  -->
+                   <h3>使用合作伙伴账号登录唐狮：</h3>
+                   <a class="qq" href="user/qq.html"></a>
+                   <a class="sina" href="user/weibo.html"></a>
+                   <a class="zfb" href="user/alipay.html"></a>
+                   <div id="ucdata" style="display:none;" ></div>
+                  </div>  -->
         </div>
 
         <div class="tab_block" style="display: none;">
@@ -363,7 +361,7 @@
                     <tr>
                         <th>&nbsp;</th>
                         <td><input name="agreement" id="agreement" type="checkbox" checked="checked" value="1"><b>
-                            我已看过并接受《<a href="javascript:;" target="_blank">用户协议</a>》</b>
+                            我已看过并接受《<a href="article/info/6.html" target="_blank">用户协议</a>》</b>
                             <span id="agreement_info"></span>
                         </td>
                     </tr>
@@ -376,136 +374,149 @@
 </div>
 <script src="/static/index/js/top_login.js"></script>
 <script type="text/javascript" src="/static/index/js/Common.js"></script>
-<div class="block box">
-    <div id="ur_here">
-        当前位置: <a href="javascript:;">首页</a> <code>&gt;</code> 用户中心
+<script type="text/javascript" src="/static/index/js/layer.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="http://www.tonlion.com/js/tonlion/skin/png.js"></script><![endif]-->
+<div class="user_box">
+    <div class="u_header">
+        <h2>会员中心</h2>
+        <div class="u_top_news">
+            <a title="我们渴望倾听您的声音！欢迎加入用户体验改善计划" target="_blank" href=" ">我们渴望倾听您的声音,欢迎加入用户体验改善计划！ </a>
+        </div>
+    </div>
+    <div class="box_left">
+
+        <dl>
+            <dt>交易管理</dt>
+            <dd><a href="user.php?act=order_list">我的订单</a></dd>
+            <!--<dd><a href="user.php?act=booking_list">缺货登记</a></dd>-->
+            <dd><a href="user.php?act=comment_list">我的评价</a></dd>
+            <dd><a href="user.php?act=coupons_list">我的优惠券</a></dd>
+            <dd><a href="user.php?act=user_cash" style="color:#F00">提货券充值</a></dd>
+            <dd><a href="user.php?act=recharge_cash" style="color:#F00">现金券充值</a></dd>
+        </dl>
+        <dl>
+            <dt>个人信息管理</dt>
+            <dd><a href="user.php?act=profile">修改个人资料</a></dd>
+            <dd><a href="user.php?act=profile">修改密码</a></dd>
+            <dd><a href="user.php?act=address_list">收货地址</a></dd>
+            <dd><a href="user.php?act=message_list">我的留言</a></dd>
+            <dd><a href="user.php?act=collection_list">我的收藏</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="shop693985.ekd.vmod.cn"><font color="#FF0000">老系统入口</font></a></dt>
+
+        </dl>
+        <!-- <dl>
+           <dt>退换货/投诉</dt>
+           <dd>申请退换货/投诉</dd>
+           <dd>退货管理</dd>
+           <dd>换货管理</dd>
+           <dd>我的投诉</dd>
+         </dl>  -->
+
+    </div>
+    <div class="box_right">
+
+
+        <div class="order_tips">
+            <!---
+             <ul>
+                <li class="vmiddle textright">我的交易提醒：</li>
+                <li class="vmiddle"><a href="/">待付款<i>(1)</i> </a></li>
+                <li class="vmiddle"><a href="/">待确认收货<i>(2)</i> </a></li>
+                <li class="vmiddle"><a href="/">待评价<i>(8)</i> </a></li>
+             </ul>
+             --->
+            <div class="clear"></div>
+
+        </div>
+        <div class="user_con fr">
+            <iframe src="/user/user_info" frameborder="0" name="main_frame" class="main_frame"
+                    id="main_frame" style="height: 400px;width: 1000px"></iframe>
+        </div>
+
+
+
     </div>
 </div>
-
-
-<div class="user_con fr">
-    <iframe src="/user/user_info" frameborder="0" name="main_frame" class="main_frame" id="main_frame"
-    style="align-content: center; height: 600px"></iframe>
-</div>
-<!--<div class="blank"></div>-->
-<!--<div class="usBox clearfix">-->
-<!--    <div class="usBox_1 f_l">-->
-<!--        <div class="logtitle"></div>-->
-<!--        <form name="formLogin" id="formLogin" action="" method="post" onsubmit="return ">-->
-<!--            <table width="100%" border="0" align="left" cellpadding="3" cellspacing="5">-->
-<!--                <tr>-->
-<!--                    <td width="15%" align="right">用户名</td>-->
-<!--                    <td width="85%"><input name="username" id="user_name" type="text" size="25" class="inputBg"></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td align="right" id="passwd" >密码</td>-->
-<!--                    <td>-->
-<!--                        <input name="password" type="password" size="15" class="inputBg">-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td colspan="2"><input type="checkbox" value="1" name="remember" id="remember"><label-->
-<!--                            for="remember">请保存我这次的登录信息。</label></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>&nbsp;</td>-->
-<!--                    <td align="left">-->
-
-<!--                        <input type="button" id="login_lqy" name="submit" value="" class="us_Submit">-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td></td>-->
-<!--                    <td><a href="javascript:;" class="f3">密码问题找回密码</a>&nbsp;&nbsp;&nbsp;<a href="javascript:;"-->
-<!--                                                                                           class="f3">注册邮件找回密码</a></td>-->
-<!--                </tr>-->
-<!--            </table>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    <div class="usTxt">-->
-<!--        <strong>如果您不是会员，请注册</strong> <br>-->
-<!--        <strong class="f4">友情提示：</strong><br>-->
-<!--        不注册为会员不可以在本店购买商品<br>-->
-<!--        但注册之后您可以：<br>-->
-<!--        1. 保存您的个人资料<br>-->
-<!--        2. 收藏您关注的商品<br>-->
-<!--        3. 享受会员积分制度<br>-->
-<!--        4. 订阅本店商品信息 <br>-->
-<!--        <a href="javascript:;"><img src="/static/index/picture/bnt_ur_reg.gif"></a>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 <div class="blank"></div>
+<div class="clear"></div>
 <div class="clearfix"></div>
 <div class="footer">
     <div class="wrap">
         <div id="foot_help">
             <div class="foot_intr" id="foot_intr01">
                 <ul>
-                    <li><a target="_blank" href="javascript:;">用户注册</a></li>
+                    <li><a target="_blank" href="article.php?id=7">用户注册</a></li>
 
 
-                    <li><a target="_blank" href="javascript:;">会员折扣</a></li>
-                    <li><a target="_blank" href="javascript:;">用户奖励</a></li>
+                    <li><a target="_blank" href="article.php?id=10">会员折扣</a></li>
+                    <li><a target="_blank" href="article.php?id=9">用户奖励</a></li>
                 </ul>
             </div>
             <div class="foot_intr" id="foot_intr02">
                 <ul>
-                    <li><a target="_blank" href="javascript:;">新手必读</a></li>
-                    <li><a target="_blank" href="javascript:;">购物流程</a></li>
-                    <li><a target="_blank" href="javascript:;">订单状态</a></li>
+                    <li><a target="_blank" href="article.php?id=11">新手必读</a></li>
+                    <li><a target="_blank" href="article.php?id=8">购物流程</a></li>
+                    <li><a target="_blank" href="article.php?id=12">订单状态</a></li>
                 </ul>
             </div>
             <div class="foot_intr" id="foot_intr03">
                 <ul>
-                    <li><a target="_blank" href="javascript:;">支付方式</a></li>
-                    <li><a target="_blank" href="javascript:;">使用条款</a></li>
-                    <li><a target="_blank" href="javascript:;">免责声明</a><span style="display:none;"><a
-                            href="javascript:;"><img border="0"
-                                                     src="http://img.webscan.360.cn/status/pai/hash/f4099a29444050de7d75c22c685b8424"></a></span>
+                    <li><a target="_blank" href="article.php?id=14">支付方式</a></li>
+                    <li><a target="_blank" href="article.php?id=16">使用条款</a></li>
+                    <li><a target="_blank" href="article.php?id=17">免责声明</a><span style="display:none;"><a
+                            href="http://webscan.360.cn/index/checkwebsite/url/www.tonlion.com"><img
+                            src="http://img.webscan.360.cn/status/pai/hash/f4099a29444050de7d75c22c685b8424" border="0"></a></span>
                     </li>
                 </ul>
             </div>
             <div class="foot_intr" id="foot_intr04">
                 <ul>
-                    <li><a target="_blank" href="javascript:;">配送方式</a></li>
-                    <li><a target="_blank" href="javascript:;">订单出库</a></li>
-                    <li><a target="_blank" href="javascript:;">送货和验货</a></li>
+                    <li><a target="_blank" href="article.php?id=18">配送方式</a></li>
+                    <li><a target="_blank" href="article.php?id=23">订单出库</a></li>
+                    <li><a target="_blank" href="article.php?id=24">送货和验货</a></li>
                 </ul>
             </div>
             <div class="foot_intr" id="foot_intr05">
                 <ul>
-                    <li><a target="_blank" href="javascript:;">注册协议</a></li>
-                    <li><a target="_blank" href="javascript:;">隐私保护</a></li>
-                    <li><a target="_blank" href="javascript:;">退换货保障</a></li>
+                    <li><a target="_blank" href="article.php?id=19">注册协议</a></li>
+                    <li><a target="_blank" href="article.php?id=2">隐私保护</a></li>
+                    <li><a target="_blank" href="article.php?id=21">退换货保障</a></li>
                 </ul>
             </div>
-            <div class="foot_code"><p>唐狮官网微信二维码</p> <img border="0" width="116" height="117"
-                                                         src="/static/index/picture/big_ormosia.jpg">
+            <div class="foot_code"><p>唐狮官网微信二维码</p> <img src="/static/index/picture/big_ormosia.jpg" width="116"
+                                                         height="117" border="0">
                 <p style="text-align: center;padding-top:2px;">加唐狮为微信好友</p></div>
         </div>
 
         <div class="foot_v">
             <!-- <p class="foot_vv"> <a rel="nofollow" target="_blank" href="http://www.tonlion.com/page-pinpai.html">关于我们</a> <a rel="nofollow" target="_blank" href="http://www.tonlion.com/page-contact.html">联系我们</a> <a rel="nofollow" target="_blank" href="http://www.tonlion.com/page-jobs.html">招聘信息</a> <a target="_blank" href="http://www.tonlion.com/artlist-100.html">最新公告</a> <a target="_blank" href="http://www.tonlion.com/artlist-101.html">促销信息</a> <a rel="nofollow" target="_blank" href="http://www.tonlion.com/page-business.html">业务合作</a> <a target="_blank" href="http://www.tonlion.com/page-mobile.html">壁纸下载</a> <a style="border-right:none;" target="_blank" href="http://www.tonlion.com/sitemapsview.html">站点地图</a> </p>-->
-            <p><a target="_blank" href="javascript:;">浙备案号 浙ICP备11011442号</a></p>
+            <p><a target="_blank" href="http://www.miitbeian.gov.cn/">浙备案号 浙ICP备11011442号</a></p>
             <p style="display:none">
-                <script src="/static/index/js/stat-1253252508_1253252508.js" language="JavaScript"></script>
+                <script src="http://s9.cnzz.com/stat.php?id=1253252508&amp;web_id=1253252508"
+                        language="JavaScript"></script>
+                <script src="http://c.cnzz.com/core.php?web_id=1253252508&amp;t=z" charset="utf-8"
+                        type="text/javascript"></script>
+                <a href="https://www.cnzz.com/stat/website.php?web_id=1253252508" target="_blank" title="站长统计">站长统计</a>
             </p>
-            <a target='_blank' href='javascript:;'><img
-                    src='http://idinfo.zjaic.gov.cn//login.do?method=createLZ&id=3302003302000000004496'></a></div>
+            <a target="_blank" href="http://idinfo.zjaic.gov.cn//bscx.do?method=lzxx&amp;id=3302003302000000004496"><img
+                    src=""></a></div>
 
-        <div class="foot_b"><a target="_blank" href="javascript:;" title="备案信息查询"> <img
-                src="/static/index/picture/foot-t02.jpg"> </a> <a target="_blank" href="javascript:;"> <img
-                src="/static/index/picture/Bqq.jpg" width="114" height="35" alt="腾讯企业QQ"> </a></div>
+        <div class="foot_b"><a target="_blank" href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action"
+                               title="备案信息查询"> <img src="/static/index/picture/foot-t02.jpg"> </a> <a target="_blank"
+                                                                                                      href="http://b.qq.com/">
+            <img src="/static/index/picture/Bqq.jpg" alt="腾讯企业QQ" width="114" height="35"> </a></div>
     </div>
 </div>
 
-<div class="fb-side">
+<div class="fb-side" style="display: none;">
     <ul>
 
         <li class="cart"><a class="fb_s1" style="background:#c82c2d; border:1px solid #c82c2d"
-                            href="javascript:;"><i></i><span>在线客服</span></a></li>
+                            href="http://wpa.qq.com/msgrd?v=3&amp;uin=2781378566&amp;site=qq&amp;menu=yes"><i></i><span>在线客服</span></a>
+        </li>
 
         <li class="qrcode">
             <a target="_blank" class="fb_s" style="position:relative;overflow:visible;" href="javascript:void(0);">
@@ -627,6 +638,7 @@
 </script>
 <script type="text/javascript" src="/static/index/js/soLazy-min.js"></script>
 <script type="text/javascript" src="/static/index/js/easydialog.min.js"></script>
-</body>
 
-</head></html>
+
+</body>
+</html>

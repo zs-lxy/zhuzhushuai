@@ -1,9 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户中心Big_ormosia 大红豆官网 - 大红豆服饰官方购物商城 - Powered by Big_ormosia</title>
+    <link href="/static/index/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/user_clips.css" rel="stylesheet" type="text/css">
+    <link href="/static/index/css/layer.css" rel="stylesheet" type="text/css">
+<!--    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">-->
+
+</head>
+<body>
+
+
+
+ <table class="order_lists">
+            <colgroup>
+                <col class="selector">
+                <col class="baobei">
+                <col class="price">
+                <col class="quantity">
+                <col class="after_service">
+                <col class="amount">
+                <col class="trade_status">
+                <col class="operate">
+                <col class="other">
+            </colgroup>
+            <thead>
+            <tr class="col-title">
+                <th class="firstTH"></th>
+                <th class="baobei">宝贝</th>
+                <th class="price">单价(元)</th>
+                <th class="quantity">数量</th>
+                <th class="after_service">售后</th>
+                <th class="amount">实付款(元)</th>
+                <th class="trade_status">交易状态</th>
+                <th class="remark">交易操作</th>
+                <th class="other lastTH">其它操作</th>
+            </tr>
+            <tr class="row_space">
+                <td colspan="9"></td>
+            </tr>
+            <tr class="toolbar">
+                <td colspan="7"><!--<LABEL><INPUT id="orderAllSelector" class="all_selector" type=checkbox>全选</LABEL>
+            <A   class="toolbtn long-toolbtn"  href="/" >批量确认收货</A>-->
+                </td>
+                <td class="last-col" colspan="2">
+                    <!--- <DIV class="paginator_top">
+                       <A class="paginator_previous_orange le_fk"  href="/" >
+                         <SPAN  class="paginator_arrow paginator_arrow_left_orange">
+                         </SPAN>
+                       </A>
+                       <A  class="paginator_next le_fk"  href="/" >下一页
+                         <SPAN class="paginator_arrow paginator_arrow_right_orange">
+                         </SPAN>
+                       </A>
+                     </DIV--->
+                </td>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr class="row_space">
+                <td colspan="9"></td>
+            </tr>
+            <tr class="toolbar ">
+                <td colspan="3">
+                    <!---<LABEL><INPUT id="orderAllSelector" class="all_selector" type=checkbox>全选</LABEL>
+                            <A   class="toolbtn long-toolbtn"  href="/" >批量确认收货</A>-->
+                </td>
+                <td class="page_nav_cell" colspan="6">
+
+
+                    <form name="selectPageForm" action="/user.php" method="get">
+
+
+                        <div id="pager" class="pagebar">
+                            <span class="f_l f6" style="margin-right:10px;">总计 <b>0</b>  个记录</span>
+
+                        </div>
+
+
+                    </form>
+
+
+                    <script type="Text/Javascript" language="JavaScript">
+                        <!--
+
+                        function selectPage(sel) {
+                            sel.form.submit();
+                        }
+
+                        //-->
+                    </script>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+
+
+
+</body>
+</html>
 
 
 
 
 
-<!--这里缺少html  head   body   -->
 
 
 
@@ -11,54 +117,3 @@
 
 
 
-
-
-
-<div class="blank"></div>
-<div class="usBox clearfix">
-    <div class="usBox_1 f_l">
-
-        <div class="logtitle"></div>
-        <form name="formLogin" id="formLogin" action="" method="post" onsubmit="return ">
-            <table width="100%" border="0" align="left" cellpadding="3" cellspacing="5">
-                <tr>
-                    <td width="15%" align="right">用户名</td>
-                    <td width="85%"><input name="username" id="user_name" type="text" size="25" class="inputBg"></td>
-                </tr>
-                <tr>
-                    <td align="right" id="passwd" >密码</td>
-                    <td>
-                        <input name="password" type="password" size="15" class="inputBg">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="checkbox" value="1" name="remember" id="remember"><label
-                            for="remember">请保存我这次的登录信息。</label></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td align="left">
-
-                        <input type="button" id="login_lqy" name="submit" value="" class="us_Submit">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="javascript:;" class="f3">密码问题找回密码</a>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
-                                                                                           class="f3">注册邮件找回密码</a></td>
-                </tr>
-            </table>
-        </form>
-    </div>
-    <div class="usTxt">
-        <strong>如果您不是会员，请注册</strong> <br>
-        <strong class="f4">友情提示：</strong><br>
-        不注册为会员不可以在本店购买商品<br>
-        但注册之后您可以：<br>
-        1. 保存您的个人资料<br>
-        2. 收藏您关注的商品<br>
-        3. 享受会员积分制度<br>
-        4. 订阅本店商品信息 <br>
-        <a href="javascript:;"><img src="/static/index/picture/bnt_ur_reg.gif"></a>
-    </div>
-</div>

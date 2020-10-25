@@ -10,10 +10,10 @@ def homepage():
     # 个人主页
     # 查看有没有session
     user_mobile = session.get('mobile')
-    print("user_mobile",user_mobile)
+    # print("user_mobile",user_mobile)
     # 查询user
     user = db.session.query(User).filter(User.mobile == user_mobile).first()
-    print(user.mobile)
+    # print(user.mobile)
     # 如果没有登录...
     if not user_mobile:
         return render_template('index/homepage.html')

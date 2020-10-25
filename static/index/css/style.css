@@ -341,7 +341,7 @@ visibility:hidden;
      用户中心
 ==================== */
     .box_1 .userCenterBox{border:4px solid #f1faff; background-color:#fff;}
-    .usBox{background:#f2f2f2; border:1px solid #e2e2e2; padding:15px; width:928px;}
+    .usBox{background:#f2f2f2; border:1px solid #e2e2e2; padding-left:300px; width:928px;}
     .usBox_1{background:#fff; text-align:left; width:297px; height:208px; padding:43px 153px 60px 123px;}
     .usBox_1 .logtitle{height:30px; background:url(../image/ur_bg.gif) no-repeat 0px 0px;}
     .us_Submit{border:none; width:115px; height:40px; background:url(../image/bnt_ur_log.gif);}
