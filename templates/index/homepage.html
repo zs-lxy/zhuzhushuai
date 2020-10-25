@@ -388,23 +388,23 @@
 
         <dl>
             <dt>交易管理</dt>
-            <dd><a href="/user/my_order">我的订单</a></dd>
+            <dd><a href="/user/my_order" target="main_frame">我的订单</a></dd>
             <!--<dd><a href="user.php?act=booking_list">缺货登记</a></dd>-->
-            <dd><a href="user.php?act=comment_list">我的评价</a></dd>
-            <dd><a href="user.php?act=coupons_list">我的优惠券</a></dd>
-            <dd><a href="user.php?act=user_cash" style="color:#F00">提货券充值</a></dd>
-            <dd><a href="user.php?act=recharge_cash" style="color:#F00">现金券充值</a></dd>
+            <dd><a href="/user/my_evaluate" target="main_frame">我的评价</a></dd>
+            <dd><a href="/user/my_coupon">我的优惠券</a></dd>
+            <dd><a href="" style="color:#F00">提货券充值</a></dd>
+            <dd><a href="" style="color:#F00">现金券充值</a></dd>
         </dl>
         <dl>
             <dt>个人信息管理</dt>
-            <dd><a href="user.php?act=profile">修改个人资料</a></dd>
-            <dd><a href="user.php?act=profile">修改密码</a></dd>
-            <dd><a href="user.php?act=address_list">收货地址</a></dd>
-            <dd><a href="user.php?act=message_list">我的留言</a></dd>
-            <dd><a href="user.php?act=collection_list">我的收藏</a></dd>
+            <dd><a href="/user/alter_user_info" target="main_frame">修改个人资料</a></dd>
+            <dd><a href="/user/alter_password" target="main_frame">修改密码</a></dd>
+            <dd><a href="/user/addrs" target="main_frame">收货地址</a></dd>
+            <dd><a href="/user/leave_maessage" target="main_frame">我的留言</a></dd>
+            <dd><a href="/user/my_collect" target="main_frame">我的收藏</a></dd>
         </dl>
         <dl>
-            <dt><a href="shop693985.ekd.vmod.cn"><font color="#FF0000">老系统入口</font></a></dt>
+            <!--            <dt><a href=".ekd.vmod.cn"><font color="#FF0000">老系统入口</font></a></dt>-->
 
         </dl>
         <!-- <dl>
@@ -419,27 +419,27 @@
 
     <div class="box_right">
 
-            <div class="user_con fr">
-                <iframe src="/user/user_base_info" frameborder="0" name="main_frame" class="main_frame"
-                        id="main_frame" style="height: 400px;width: 1200px"></iframe>
-            </div>
+        <div class="user_con fr">
+            <iframe src="/user/user_base_info" frameborder="0" name="main_frame" class="main_frame"
+                    id="main_frame" style="height: 400px;width: 1200px"></iframe>
+        </div>
 
-            <div class="order_tips">
-                <!---
-                 <ul>
-                    <li class="vmiddle textright">我的交易提醒：</li>
-                    <li class="vmiddle"><a href="/">待付款<i>(1)</i> </a></li>
-                    <li class="vmiddle"><a href="/">待确认收货<i>(2)</i> </a></li>
-                    <li class="vmiddle"><a href="/">待评价<i>(8)</i> </a></li>
-                 </ul>
-                 --->
-                <div class="clear"></div>
-
-            </div>
-
+        <div class="order_tips">
+            <!---
+             <ul>
+                <li class="vmiddle textright">我的交易提醒：</li>
+                <li class="vmiddle"><a href="/">待付款<i>(1)</i> </a></li>
+                <li class="vmiddle"><a href="/">待确认收货<i>(2)</i> </a></li>
+                <li class="vmiddle"><a href="/">待评价<i>(8)</i> </a></li>
+             </ul>
+             --->
+            <div class="clear"></div>
 
         </div>
+
+
     </div>
+</div>
 
 <div class="blank"></div>
 <div class="clear"></div>
