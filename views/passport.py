@@ -76,25 +76,25 @@ def register_btn():
     # hash加密
     # user.password_hash = generate_password_hash(passwd)
 
-    # try:
-    db.session.add(user)
-    db.session.commit()
+    try:
+        db.session.add(user)
+        db.session.commit()
 
-    # 注册成功之后，立刻认为登录成功，也就说需要进行状态保持
-    session['mobile'] = user.mobile
-    session['nick_name'] = user.nick_name
-    session['password'] = user.password_hash
+        # 注册成功之后，立刻认为登录成功，也就说需要进行状态保持
+        session['mobile'] = user.mobile
+        session['nick_name'] = user.nick_name
+        session['password'] = user.password_hash
 
-    ret = {
-        "errno": 0,
-        "errmsg": "注册成功..."
-    }
-    # except:
-    #     db.session.rollback()  # 如果在将用户的信息 保存
-    #     ret = {
-    #         "errno": 900,
-    #         "errmsg": "注册失败..."
-    #     }
+        ret = {
+            "errno": 0,
+            "errmsg": "注册成功..."
+        }
+    except:
+        db.session.rollback()  # 如果在将用户的信息 保存
+        ret = {
+            "errno": 900,
+            "errmsg": "注册失败..."
+        }
 
     return jsonify(ret)
 

@@ -17,7 +17,7 @@ class Product(db.Model):  # 货号表
     dress_date = db.Column(db.DateTime, default=datetime.now)  # 出厂日期
     dress_status = db.Column(db.String(256), nullable=False)  # 服装状态(是否有货)
     one_category_id = db.Column(db.Integer, default=200)  # 一级分类
-    two_category_id  = db.Column(db.Integer, nullable=False)  # 二级分类
+    two_category_id = db.Column(db.Integer, nullable=False)  # 二级分类
 
 
 class Category(db.Model):
@@ -73,10 +73,12 @@ class User(db.Model):
     nick_name = db.Column(db.String(32), nullable=False)  # 客户昵称
     password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
     mobile = db.Column(db.String(11), nullable=False)  # 手机号
-    avatar_url = db.Column(db.String(256),nullable=True)  # 用户头像路径
+    avatar_url = db.Column(db.String(256), nullable=True)  # 用户头像路径
     create_time = db.Column(db.DateTime, default=datetime.now)  # 注册时间
     last_login = db.Column(db.DateTime, default=datetime.now)  # 最后一次登录时间
     is_admin = db.Column(db.Boolean, default=0)
-    signature = db.Column(db.String(512),nullable=True)  # 用户签名
+    signature = db.Column(db.String(512), nullable=True)  # 用户签名
     postal = db.Column(db.Integer, nullable=True)  # 邮编
-    address = db.Column(db.String(512),nullable=True)  # 联系地址
+    address = db.Column(db.String(512), nullable=True)  # 省市区地址
+    address_info = db.Column(db.String(512), nullable=True)  # 详细地址
+    email = db.Column(db.String(512), nullable=True)  # 邮箱

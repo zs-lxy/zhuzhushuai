@@ -101,24 +101,24 @@
 
 
             </style>
-            <script language="javascript">
-                $(function () {
-                    $("#newAddr").click(function () {
-                        $.ajax({
-                            type: "post",
-                            dataType: "json",
-                            url: "userAddress.php",
-                            data: "step=newAddr",
-                            success: function (msg) {
+            <!--            <script language="javascript">-->
+            <!--                $(function () {-->
+            <!--                    $("#newAddr").click(function () {-->
+            <!--                        $.ajax({-->
+            <!--                            type: "post",-->
+            <!--                            dataType: "json",-->
+            <!--                            url: "userAddress.php",-->
+            <!--                            data: "step=newAddr",-->
+            <!--                            success: function (msg) {-->
 
-                                $("#addr_text").html(msg);
+            <!--                                $("#addr_text").html(msg);-->
 
-                            }
-                        })
-                    });
-                });
+            <!--                            }-->
+            <!--                        })-->
+            <!--                    });-->
+            <!--                });-->
 
-            </script>
+            <!--</script>-->
             <div class="tbl-address_list">
                 <table class="tbl-main" cellspacing="0" cellpadding="0" border="0">
                     <caption>已保存的有效地址<a id="newAddr"><strong>添加新地址</strong></a></caption>
@@ -144,64 +144,64 @@
                     <tbody id="addr_list">
                     <script language="javascript">
                         /***********编辑、删除地址***************/
-                        $(function () {
-                            $('#addr_list  a[class="blue j_consignee_edit"],#addr_list  a[class="j_consignee_del"]').click(function () {
+                        // $(function () {
+                        //     $('#addr_list  a[class="blue j_consignee_edit"],#addr_list  a[class="j_consignee_del"]').click(function () {
+                        //
+                        //         var infos = new Object();
+                        //
+                        //         id = $(this).attr("data-id");
 
-                                var infos = new Object();
+                        // if ($(this).attr("class") == "blue j_consignee_edit") {
 
-                                id = $(this).attr("data-id");
+                        // $.ajax({
+                        //     type: "post",
+                        //     dataType: "json",
+                        //     url: "userAddress.php",
+                        //     data: "step=editAddr_user" + "&id=" + id,
+                        //     success: function (msg) {
+                        //         ///还需要把点中的表选择
+                        //         $("#addr_text").html(msg['message']);
+                        //
+                        //     }
+                        // })
+                        // } else if ($(this).attr("class") == "j_consignee_del") {
 
-                                if ($(this).attr("class") == "blue j_consignee_edit") {
-
-                                    $.ajax({
-                                        type: "post",
-                                        dataType: "json",
-                                        url: "userAddress.php",
-                                        data: "step=editAddr_user" + "&id=" + id,
-                                        success: function (msg) {
-                                            ///还需要把点中的表选择
-                                            $("#addr_text").html(msg['message']);
-
-                                        }
-                                    })
-                                } else if ($(this).attr("class") == "j_consignee_del") {
-
-                                    $.ajax({
-                                        type: "post",
-                                        dataType: "json",
-                                        url: "userAddress.php",
-                                        data: "step=deleteAddr" + "&id=" + id,
-                                        success: function (msg) {
-                                            if (msg['box'] == 'list') {
-                                                $("#address_form").html("");
-                                                $("#address_form").hide();
-                                                $("#addr_list").html(msg['message']);
-                                                $("#addr_list").show();
-                                                $("#wl_div").hide();
-                                                currnt_add_id = 0;
-                                                currnt_wl_id = 0
-                                                currnt_wl_id_flag = 0;
-                                                showInputValue();
-                                                delTr();
-                                                //getConsigneeChecked();
-                                                // showShipping();
-                                            } else {
-                                                $("#addr_list").html("");
-                                                $("#otherAddress").html("");
-                                                $("#addr_list").hide();
-                                                $("#address_form").html(msg['message']);
-                                                $("#address_form").show();
-                                                currnt_add_id = 0;
-                                                currnt_wl_id = 0
-                                                currnt_wl_id_flag = 0;
-                                                showInputValue();
-                                                delTr();
-                                            }
-                                        }
-                                    })
-                                }
-                            });
-                        })
+                        // $.ajax({
+                        //     type: "post",
+                        //     dataType: "json",
+                        //     url: "userAddress.php",
+                        //     data: "step=deleteAddr" + "&id=" + id,
+                        //     success: function (msg) {
+                        //         if (msg['box'] == 'list') {
+                        //             $("#address_form").html("");
+                        //             $("#address_form").hide();
+                        //             $("#addr_list").html(msg['message']);
+                        //             $("#addr_list").show();
+                        //             $("#wl_div").hide();
+                        //             currnt_add_id = 0;
+                        //             currnt_wl_id = 0
+                        //             currnt_wl_id_flag = 0;
+                        //             showInputValue();
+                        //             delTr();
+                        //             //getConsigneeChecked();
+                        //             // showShipping();
+                        //         } else {
+                        //             $("#addr_list").html("");
+                        //             $("#otherAddress").html("");
+                        //             $("#addr_list").hide();
+                        //             $("#address_form").html(msg['message']);
+                        //             $("#address_form").show();
+                        //             currnt_add_id = 0;
+                        //             currnt_wl_id = 0
+                        //             currnt_wl_id_flag = 0;
+                        //             showInputValue();
+                        //             delTr();
+                        //         }
+                        //     }
+                        // })
+                        // }
+                        // });
+                        // })
                         $(function () {
                             $("#addr_list li").hover(
                                 function () {
@@ -218,7 +218,7 @@
                 </table>
                 <p class="tbl-attach">最多保存5个有效地址</p></div>
             <div id="addr_text">
-                <form action="user_address.php" name="myAddress" id="myAddress">
+                <form action="" name="myAddress" id="myAddress">
                     <table class="edit-form">
                         <tbody>
                         <tr>
@@ -230,186 +230,193 @@
                         </tr>
                         <tr>
                             <th><span class="red">*</span> 省 市 区：</th>
-                            <td>
-                                <div class="consignee_area"><span id="province" pereantid="1"
-                                                                  currentid=""><p>请选择省份<i></i></p><div
-                                        id="province_html">
-            </div></span>
-                                    <span id="city" pereantid="" currentid=""><p>请选择城市<i></i></p><div id="city_html">
-            </div></span>
-                                    <span id="district" pereantid="" currentid=""><p>请选择地区<i></i></p><div
-                                            id="district_html" style="display: none;"> <p class="un_select">请选择上一级</p>
-</div></span>
-                                </div>
-                                <script type="text/javascript" src="/static/index/js/saved_resource">
 
-                                </script>
-                                <script language="javascript">
-                                    $(function () {
 
-                                        //省市地区
-                                        $(".consignee_area span").hover(
-                                            function () {
-                                                if ($(this).attr("id") == "province") {
-                                                    $.ajax({
-                                                        type: "post",
-                                                        dataType: "json",
-                                                        url: "flow.php",
-                                                        data: "step=getAddres&pereantId=" + $(this).attr("pereantId") + "&currentId=" + $(this).attr("currentId"),
-                                                        success: function (msg) {
-                                                            $("#province_html").html(msg);
-                                                        }
-                                                    })
-                                                    //$(this).children("div").html();
-                                                } else if ($(this).attr("id") == "city") {
-                                                    $.ajax({
-                                                        type: "post",
-                                                        dataType: "json",
-                                                        url: "flow.php",
-                                                        data: "step=getAddres&pereantId=" + $(this).attr("pereantId") + "&currentId=" + $(this).attr("currentId"),
-                                                        success: function (msg) {
-                                                            $("#city_html").html(msg);
-                                                        }
-                                                    })
-                                                } else if ($(this).attr("id") == "district") {
-                                                    $.ajax({
-                                                        type: "post",
-                                                        dataType: "json",
-                                                        url: "flow.php",
-                                                        data: "step=getAddres&pereantId=" + $(this).attr("pereantId") + "&currentId=" + $(this).attr("currentId"),
-                                                        success: function (msg) {
-                                                            $("#district_html").html(msg);
-                                                        }
-                                                    })
+                            <td><input type="text" name="ssq" id="addrs_ssq"></td>
+                            <!--                            <td>-->
+                            <!--                                <div class="consignee_area"><span id="province" pereantid="1"-->
+                            <!--                                                                  currentid=""><p>请选择省份<i></i></p><div-->
+                            <!--                                        id="province_html">-->
+                            <!--            </div></span>-->
+                            <!--                                    <span id="city" pereantid="" currentid=""><p>请选择城市<i></i></p><div id="city_html">-->
+                            <!--            </div></span>-->
+                            <!--                                    <span id="district" pereantid="" currentid=""><p>请选择地区<i></i></p><div-->
+                            <!--                                            id="district_html" style="display: none;"> <p class="un_select">请选择上一级</p>-->
+                            <!--</div></span>-->
+                            <!--                                </div>-->
+                            <!--                            </td>    -->
+                            <script type="text/javascript" src="/static/index/js/saved_resource">
+
+                            </script>
+                            <script language="javascript">
+                                $(function () {
+
+                                    //省市地区
+                                    // $(".consignee_area span").hover(
+                                    //     function () {
+                                    //         if ($(this).attr("id") == "province") {
+                                    //             $.ajax({
+                                    //                 type: "post",
+                                    //                 dataType: "json",
+                                    //                 url: "/user/addrs_oooo",
+                                    //                 // data: "step=getAddres&pereantId=" + $(this).attr("pereantId") + "&currentId=" + $(this).attr("currentId"),
+                                    //                 data: 'aaaaaaaaaaa',
+                                    //                 success: function (msg) {
+                                    //                     $("#province_html").html(msg);
+                                    //                 }
+                                    //             })
+                                    //             //$(this).children("div").html();
+                                    //         } else if ($(this).attr("id") == "city") {
+                                    //             $.ajax({
+                                    //                 type: "post",
+                                    //                 dataType: "json",
+                                    //                 url: "/user/addrs_oooo",
+                                    //                 data: "step=getAddres&pereantId=" + $(this).attr("pereantId") + "&currentId=" + $(this).attr("currentId"),
+                                    //                 success: function (msg) {
+                                    //                     $("#city_html").html(msg);
+                                    //                 }
+                                    //             })
+                                    //         } else if ($(this).attr("id") == "district") {
+                                    //             $.ajax({
+                                    //                 type: "post",
+                                    //                 dataType: "json",
+                                    //                 url: "/user/addrs_oooo",
+                                    //                 data: "step=getAddres&pereantId=" + $(this).attr("pereantId") + "&currentId=" + $(this).attr("currentId"),
+                                    //                 success: function (msg) {
+                                    //                     $("#district_html").html(msg);
+                                    //                 }
+                                    //             })
+                                    //         }
+                                    //         $(this).children("div").show();
+                                    //     },
+                                    //     function () {
+                                    //         $(this).children("div").hide();
+                                    //     }
+                                    // )
+                                    /////保存
+                                    var obj = new Object();
+                                    obj = $("#addr_text input");
+                                    var flag = ""
+                                    var str = "";
+                                    $("#saveAddress").click(function () {
+
+
+                                        var myValue = ""
+                                        var isMobile = /^(?:13\d|15\d|17\d|18\d)\d{5}(\d{3}|\*{3})$/;  //手机
+                                        var isPhone = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;//电话
+                                        var reg = /^[0-9]{6}$/;
+                                        obj.each(function () {
+                                            myValue = $(this).attr("value");
+
+                                            if ($(this).attr("name") == "realname") {
+                                                if (!myValue) {
+                                                    //layer.tips('请填写收货人姓名' , this , 3)
+                                                    alert("请填写收货人姓名");
+                                                    flag = false;
+                                                    return false;
                                                 }
-                                                $(this).children("div").show();
-                                            },
-                                            function () {
-                                                $(this).children("div").hide();
+                                            } else if ($(this).attr("name") == "ssq") {
+                                                if (myValue < 1 || !myValue) {
+                                                    alert("请填写省份");
+                                                    $("#ssq").focus();
+                                                    flag = false;
+                                                    return false;
+                                                }
                                             }
-                                        )
-                                        /////保存
-                                        var obj = new Object();
-                                        obj = $("#addr_text input");
-                                        var flag = ""
-                                        var str = "";
-                                        $("#saveAddress").click(function () {
-
-
-                                            var myValue = "";
-                                            var isMobile = /^(?:13\d|15\d|17\d|18\d)\d{5}(\d{3}|\*{3})$/;  //手机
-                                            var isPhone = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;//电话
-                                            var reg = /^[0-9]{6}$/;
-                                            obj.each(function () {
-                                                myValue = $(this).attr("value");
-
-                                                if ($(this).attr("name") == "realname") {
-                                                    if (!myValue) {
-                                                        //layer.tips('请填写收货人姓名' , this , 3)
-                                                        alert("请填写收货人姓名");
-                                                        flag = false;
-                                                        return false;
-                                                    }
-                                                } else if ($(this).attr("name") == "province") {
-                                                    if (myValue < 1 || !myValue) {
-                                                        alert("请填写省份");
-                                                        $("#province").focus();
-                                                        flag = false;
-                                                        return false;
-                                                    }
-                                                } else if ($(this).attr("name") == "city") {
-                                                    if (myValue < 1 || !myValue) {
-                                                        alert("请选择城市");
-                                                        $("#city").focus();
-                                                        flag = false;
-                                                        return false;
-                                                    }
-                                                } else if ($(this).attr("name") == "address") {
-                                                    if (myValue < 1 || !myValue) {
-                                                        alert("请填完整的收货地址");
+                                                // else if ($(this).attr("name") == "city") {
+                                                //     if (myValue < 1 || !myValue) {
+                                                //         alert("请选择城市");
+                                                //         $("#city").focus();
+                                                //         flag = false;
+                                                //         return false;
+                                                //     }
+                                                // } else if ($(this).attr("name") == "address") {
+                                                //     if (myValue < 1 || !myValue) {
+                                                //         alert("请填完整的收货地址");
+                                                //         $(this).focus();
+                                                //         flag = false;
+                                                //         return false;
+                                                //     }
+                                            // }
+                                            else if ($(this).attr("name") == "postcode") {
+                                                if (myValue && !reg.test(myValue)) {
+                                                    alert("邮政编码不对");
+                                                    $(this).focus();
+                                                    flag = false;
+                                                    return false;
+                                                }
+                                            } else if ($(this).attr("name") == "mobile") {
+                                                if (myValue) {
+                                                    if (!isMobile.test(myValue)) {
+                                                        alert("手机格式不对");
                                                         $(this).focus();
                                                         flag = false;
                                                         return false;
-                                                    }
-                                                } else if ($(this).attr("name") == "postcode") {
-                                                    if (myValue && !reg.test(myValue)) {
-                                                        alert("邮政编码不对");
-                                                        $(this).focus();
-                                                        flag = false;
-                                                        return false;
-                                                    }
-                                                } else if ($(this).attr("name") == "mobile") {
-                                                    if (myValue) {
-                                                        if (!isMobile.test(myValue)) {
-                                                            alert("手机格式不对");
-                                                            $(this).focus();
-                                                            flag = false;
-                                                            return false;
-                                                        }
-                                                    } else {
-                                                        if (!$("#input_phone").attr("value")) {
-                                                            alert("手机号码和电话要填写一个");
-                                                            $(this).focus();
-                                                            flag = false;
-                                                            return false;
-                                                        }
-                                                    }
-                                                } else if ($(this).attr("name") == "phone") {
-                                                    if (myValue) {
-                                                        if (!isPhone.test(myValue)) {
-                                                            alert('电话号码格式：区号-电话号码！')
-                                                            $(this).focus();
-                                                            flag = false;
-                                                            return false;
-                                                        }
-                                                    } else {
-                                                        if (!$("#input_mobile").attr("value")) {
-                                                            alert('电话号码和电话必须要填写一个哦！')
-                                                            $(this).focus();
-                                                            flag = false;
-                                                            return false;
-                                                        }
-                                                    }
-                                                } else if ($(this).attr("name") == "email") {
-                                                    if (myValue) {
-                                                        if (!$(this).val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) {
-                                                            alert('邮件格式不对哦？')
-                                                            $(this).focus();
-                                                            flag = false;
-                                                            return false;
-                                                        }
                                                     }
                                                 } else {
-                                                    flag = true;
-
-                                                }
-                                            })
-                                            if (flag) {
-
-                                                //str=""+
-                                                $.ajax({
-                                                    type: "post",
-                                                    dataType: "json",
-                                                    url: "userAddress.php",
-                                                    data: "step=addAddres_user&username=" + $("#input_realname").attr("value") + "&province=" + $("#input_province").attr("value") + "&city=" + $("#input_city").attr("value") + "&district=" + $("#input_district").attr("value") + "&address=" + $("#input_address").attr("value") + "&postcode=" + $("#input_postcode").attr("value") + "&mobile=" + $("#input_mobile").attr("value") + "&phone=" + $("#input_phone").attr("value") + "&email=" + $("#input_email").attr("value") + "&act=" + $("#input_act").attr("value") + "&old_id=" + $("#input_old_id").attr("value"),
-                                                    success: function (msg) {
-
-                                                        $("#addr_list").html(msg['message']);
-
-                                                        //getConsigneeChecked();
-                                                        ///showShipping();
-                                                        //alert(msg);
+                                                    if (!$("#input_phone").attr("value")) {
+                                                        alert("手机号码和电话要填写一个");
+                                                        $(this).focus();
+                                                        flag = false;
+                                                        return false;
                                                     }
-                                                })
+                                                }
+                                            } else if ($(this).attr("name") == "phone") {
+                                                if (myValue) {
+                                                    if (!isPhone.test(myValue)) {
+                                                        alert('电话号码格式：区号-电话号码！')
+                                                        $(this).focus();
+                                                        flag = false;
+                                                        return false;
+                                                    }
+                                                } else {
+                                                    if (!$("#input_mobile").attr("value")) {
+                                                        alert('电话号码和电话必须要填写一个哦！')
+                                                        $(this).focus();
+                                                        flag = false;
+                                                        return false;
+                                                    }
+                                                }
+                                            } else if ($(this).attr("name") == "email") {
+                                                if (myValue) {
+                                                    if (!$(this).val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) {
+                                                        alert('邮件格式不对哦？')
+                                                        $(this).focus();
+                                                        flag = false;
+                                                        return false;
+                                                    }
+                                                }
+                                            } else {
+                                                flag = true;
+
                                             }
-                                        });
-                                        ////结束
+                                        })
+                                        //         if (flag) {
+                                        //
+                                        //             //str=""+
+                                        //             $.ajax({
+                                        //                 type: "post",
+                                        //                 dataType: "json",
+                                        //                 url: "userAddress.php",
+                                        //                 data: "step=addAddres_user&username=" + $("#input_realname").attr("value") + "&province=" + $("#input_province").attr("value") + "&city=" + $("#input_city").attr("value") + "&district=" + $("#input_district").attr("value") + "&address=" + $("#input_address").attr("value") + "&postcode=" + $("#input_postcode").attr("value") + "&mobile=" + $("#input_mobile").attr("value") + "&phone=" + $("#input_phone").attr("value") + "&email=" + $("#input_email").attr("value") + "&act=" + $("#input_act").attr("value") + "&old_id=" + $("#input_old_id").attr("value"),
+                                        //                 success: function (msg) {
+                                        //
+                                        //                     $("#addr_list").html(msg['message']);
+                                        //
+                                        //                     //getConsigneeChecked();
+                                        //                     ///showShipping();
+                                        //                     //alert(msg);
+                                        //                 }
+                                        //             })
+                                        //         }
                                     });
-                                </script>
-                                <input type="hidden" name="province" id="input_province" value="">
-                                <input type="hidden" name="city" id="input_city" value="">
-                                <input type="hidden" name="district" id="input_district" value="">
-                                <p class="msg"></p>
+                                    //     ////结束
+                                });
+                            </script>
+                            <!--                                <input type="hidden" name="province" id="input_province" value="">-->
+                            <!--                                <input type="hidden" name="city" id="input_city" value="">-->
+                            <!--                                <input type="hidden" name="district" id="input_district" value="">-->
+                            <p class="msg"></p>
                             </td>
                         </tr>
                         <tr>
@@ -431,14 +438,15 @@
                             <th><span class="red">*</span> 手机号码：</th>
                             <td>
                                 <input type="text" name="mobile" id="input_mobile" value="" size="30" maxlength="20"
-                                       placeholder="固定电话和手机中必填一项" class="f_inputTxt">    固定电话：<input type="text"
-                                                                                                     name="phone"
-                                                                                                     value="" size="30"
-                                                                                                     maxlength="20"
-                                                                                                     placeholder="固定电话和手机中必填一项"
-                                                                                                     id="input_phone"
-                                                                                                     class="f_inputTxt"
-                                                                                                     data-tip="input_phone_tip">
+                                       placeholder="固定电话和手机中必填一项" class="f_inputTxt">
+                                <!--                                    固定电话：<input type="text"-->
+                                <!--                                                name="phone"-->
+                                <!--                                                value="" size="30"-->
+                                <!--                                                maxlength="20"-->
+                                <!--                                                placeholder="固定电话和手机中必填一项"-->
+                                <!--                                                id="input_phone"-->
+                                <!--                                                class="f_inputTxt"-->
+                                <!--                                                data-tip="input_phone_tip">-->
                                 <span class="red input_phone_tip" style="display:none;">请按格式填写：区号-电话号码-分机号</span>
                             </td>
 
@@ -468,6 +476,58 @@
 </div>
 
 </body>
+
+<script>
+    //  点击事件  saveAddress
+    // addrs_ssq  =  收货人
+    // input_realname  =收收货地址
+    // input_address   = 详细地址
+    // input_postcode = 邮编
+    // input_mobile = 手机号      input_phone = 固定电话
+    // input_email = 邮箱
+
+    $(function () {
+        $("#saveAddress").click(function () {
+            var addrs_ssq = $("#addrs_ssq").val();
+            var input_realname = $("#input_realname").val();
+            var input_address = $("#input_address").val();
+            var input_postcode = $("#input_postcode").val();
+            var input_mobile = $("#input_mobile").val();
+            // var input_phone = $("#input_phone").val();
+            var input_email = $("#input_email").val();
+
+            par = {
+                "input_realname": input_realname,
+                "addrs_ssq": addrs_ssq,
+                "input_address": input_address,
+                "input_postcode": input_postcode,
+                "input_mobile": input_mobile,
+                "input_email": input_email
+                // "input_phone": input_phone
+            }
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: "/user/addrs_oooo",
+                data: JSON.stringify(par),
+                contentType: "application/json",
+                success: function (resp) {
+                    if (resp.errno == '0') {
+                        alert(resp.errmsg);
+                        // window.location.href = '/'
+                    } else {
+                        alert(resp.errmsg);
+                        // window.location.reload()
+                    }
+
+                }
+            })
+        })
+
+    })
+
+
+</script>
 </html>
 
 
