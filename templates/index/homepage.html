@@ -45,11 +45,19 @@
 
         <dl class="user-panel">
             <dd class="login-info vip-icon" id="js-login-info">
+
+                {%if not user%}
                 <div id="append_parent"></div>
 
-                <a class="top-logout" href="user.php?act=logout">退出</a> <span class="vip" style="display: none;"></span>
-                <p>您好, <a href="user.php">13131402834</a></p>
-            </dd>
+                啦啦啦，欢迎来到红豆购物商城！ <a href="javascript:;" class="top-login" id="open_login">登录</a>|<a href="javascript:;"
+                                                                                                    class="top-regiter"
+                                                                                                    id="open_reg">注册</a>
+                | <a href="show-Login_pc_code_101187163_htt.html"><img src="/static/index/picture/qq_login.png"
+                                                                       style="vertical-align:middle;"></a>】
+                {%else%}
+                <a class="top-logout" href="/passport/log_out">退出</a>  <span class="vip" style="display: none;"></span>
+                <p>您好, <a href="/user/homepage">{{user}}</a></p>
+                {%endif%}
 
             <dd class="my-order">
                 <a href="javascript:.;" bi="top2_b_1_4_1" onclick="checkLogin('user')">我的订单</a>

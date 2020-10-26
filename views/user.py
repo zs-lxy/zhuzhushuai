@@ -74,6 +74,37 @@ def alter_password():
     return render_template("index/alter_password.html")
 
 
+@user_blu.route("/user/alter_password_ooo", methods=["POST", "GET"])
+def alter_password_ooo():
+    old_p = request.json.get('oldpassword')
+    new_p = request.json.get('newpassword')
+
+    # 查询登录的用户是谁
+    user_mobile = session.get('mobile')
+    # 查询user
+    user = db.session.query(User).filter(User.mobile == user_mobile).first()
+
+    if user.password_hash == old_p:
+        user.password_hash = new_p
+    try:
+
+        db.session.commit()
+        ret = {
+
+            'errno': 0,
+            'errmsg': "修改密码成功"
+
+        }
+
+    except:
+        db.session.rollback()  # 如果在将用户的信息 保存
+        ret = {
+            "errno": 903,
+            "errmsg": "修改密码失败啦..."
+        }
+    return jsonify(ret)
+
+
 @user_blu.route("/user/addrs")
 def addrs():
     # 收货地址
@@ -116,6 +147,9 @@ def addrs_oooo():
             'errmsg': "收货信息保存ok"
 
         }
+        # 修改过程中  改变了存入session 里面的用户登录的重要信息 : 电话号
+        # 把新的保存起来
+        session["mobile"] = user.mobile
     except:
         db.session.rollback()  # 如果在将用户的信息 保存
         ret = {
