@@ -1,7 +1,11 @@
+import hashlib
+import time
+
 from flask import jsonify, render_template, session, request
 
 from models import db
 from models.index import User
+from utlis.image_qiniu import upload_image_to_qiniu
 from views import user_blu
 
 
@@ -66,6 +70,52 @@ def cash():
 def alter_user_info():
     # 修改个人信息
     return render_template("index/alter_user_info.html")
+
+
+@user_blu.route("/user/user_avatar", methods=["POST"])
+def user_avatar():
+    nick_name = request.json.get('nick_name')
+    gender = request.json.get('gender')
+
+    f = request.files.get("avatar_url")
+    print("_+++++++++++++++++++++++++++++++++++++++")
+    print(nick_name, gender)
+    print(f)
+    if f:
+        # print(f.filename)
+        # 为了防止多个用户上传的图片名字相同，需要将用户的图片计算出一个随机的用户名，防止冲突
+        file_hash = hashlib.md5()
+        file_hash.update((f.filename + time.ctime()).encode("utf-8"))
+        file_name = file_hash.hexdigest() + f.filename[f.filename.rfind("."):]
+
+        avatar_url = file_name
+
+        # 将路径改为static/upload下
+        path_file_name = "./static/upload/" + file_name
+
+        # 用新的随机的名字当做图片的名字
+        f.save(path_file_name)
+
+        # 将这个图片上传到七牛云
+        qiniu_avatar_url = upload_image_to_qiniu(path_file_name, file_name)
+
+        # 修改数据库中用户的头像链接（注意，图片时不放在数据库中的，数据库中存放的图片的名字或者路径加图片名）
+        user_id = session.get("user_id")
+        user = db.session.query(User).filter(User.id == user_id).first()
+        user.avatar_url = qiniu_avatar_url
+        db.session.commit()
+
+        ret = {
+            "errno": 0,
+            "avatar_url": user.avatar_url
+        }
+    else:
+        ret = {
+            "errno": 904,
+            "errmsg": "上传失败"
+        }
+
+    return jsonify(ret)
 
 
 @user_blu.route("/user/alter_password")

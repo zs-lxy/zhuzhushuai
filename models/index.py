@@ -82,3 +82,25 @@ class User(db.Model):
     address = db.Column(db.String(512), nullable=True)  # 省市区地址
     address_info = db.Column(db.String(512), nullable=True)  # 详细地址
     email = db.Column(db.String(512), nullable=True)  # 邮箱
+
+
+
+class User_message(db.Model):
+    '''客户'''
+
+    __tablename__ = 'user_message'
+
+    id = db.Column(db.Integer, primary_key=True)  # id
+    user_id = db.Column(db.String(32), nullable=True)  # 客户真名
+    nick_name = db.Column(db.String(32), nullable=False)  # 客户昵称
+    password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
+    mobile = db.Column(db.String(11), nullable=False)  # 手机号
+    avatar_url = db.Column(db.String(256), nullable=True)  # 用户头像路径
+    create_time = db.Column(db.DateTime, default=datetime.now)  # 注册时间
+    last_login = db.Column(db.DateTime, default=datetime.now)  # 最后一次登录时间
+    is_admin = db.Column(db.Boolean, default=0)
+    signature = db.Column(db.String(512), nullable=True)  # 用户签名
+    postal = db.Column(db.Integer, nullable=True)  # 邮编
+    address = db.Column(db.String(512), nullable=True)  # 省市区地址
+    address_info = db.Column(db.String(512), nullable=True)  # 详细地址
+    email = db.Column(db.String(512), nullable=True)  # 邮箱
