@@ -84,23 +84,14 @@ class User(db.Model):
     email = db.Column(db.String(512), nullable=True)  # 邮箱
 
 
-
 class User_message(db.Model):
-    '''客户'''
+    '''客户留言'''
 
     __tablename__ = 'user_message'
 
     id = db.Column(db.Integer, primary_key=True)  # id
-    user_id = db.Column(db.String(32), nullable=True)  # 客户真名
-    nick_name = db.Column(db.String(32), nullable=False)  # 客户昵称
-    password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
-    mobile = db.Column(db.String(11), nullable=False)  # 手机号
-    avatar_url = db.Column(db.String(256), nullable=True)  # 用户头像路径
-    create_time = db.Column(db.DateTime, default=datetime.now)  # 注册时间
-    last_login = db.Column(db.DateTime, default=datetime.now)  # 最后一次登录时间
-    is_admin = db.Column(db.Boolean, default=0)
-    signature = db.Column(db.String(512), nullable=True)  # 用户签名
-    postal = db.Column(db.Integer, nullable=True)  # 邮编
-    address = db.Column(db.String(512), nullable=True)  # 省市区地址
-    address_info = db.Column(db.String(512), nullable=True)  # 详细地址
-    email = db.Column(db.String(512), nullable=True)  # 邮箱
+    user_grade = db.Column(db.Integer, default=1)  # 留言等级
+    user_mobile = db.Column(db.String(11), nullable=True)  # 客户的电话
+    user_title = db.Column(db.String(100), nullable=True)  # 留言的标题
+    user_files_url = db.Column(db.String(100), nullable=True)  # 留言的标题
+    user_message = db.Column(db.String(512), nullable=True)  # 留言内容

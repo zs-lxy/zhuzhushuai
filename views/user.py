@@ -1,10 +1,11 @@
 import hashlib
+import os
 import time
 
 from flask import jsonify, render_template, session, request
 
 from models import db
-from models.index import User
+from models.index import User, User_message
 from utlis.image_qiniu import upload_image_to_qiniu
 from views import user_blu
 
@@ -68,19 +69,19 @@ def cash():
 
 @user_blu.route("/user/alter_user_info")
 def alter_user_info():
-    # 修改个人信息
-    return render_template("index/alter_user_info.html")
+    # 修改个人信息   --------   已经去繁从简  只上传头像 (修改地址完成了大部分功能)
+    # 个人主页信息展示
+    user_mobile = session.get('mobile')
+    # 查询user
+    user = db.session.query(User).filter(User.mobile == user_mobile).first()
+
+    return render_template("index/alter_user_info.html", user=user)
 
 
 @user_blu.route("/user/user_avatar", methods=["POST"])
 def user_avatar():
-    nick_name = request.json.get('nick_name')
-    gender = request.json.get('gender')
+    f = request.files.get("avatar")
 
-    f = request.files.get("avatar_url")
-    print("_+++++++++++++++++++++++++++++++++++++++")
-    print(nick_name, gender)
-    print(f)
     if f:
         # print(f.filename)
         # 为了防止多个用户上传的图片名字相同，需要将用户的图片计算出一个随机的用户名，防止冲突
@@ -100,8 +101,8 @@ def user_avatar():
         qiniu_avatar_url = upload_image_to_qiniu(path_file_name, file_name)
 
         # 修改数据库中用户的头像链接（注意，图片时不放在数据库中的，数据库中存放的图片的名字或者路径加图片名）
-        user_id = session.get("user_id")
-        user = db.session.query(User).filter(User.id == user_id).first()
+        user_mobile = session.get("mobile")
+        user = db.session.query(User).filter(User.mobile == user_mobile).first()
         user.avatar_url = qiniu_avatar_url
         db.session.commit()
 
@@ -163,13 +164,6 @@ def addrs():
 
 @user_blu.route("/user/addrs_oooo", methods=["POST", "GET"])
 def addrs_oooo():
-    # // addrs_ssq = 收货人
-    # // input_realname = 收收货地址
-    # // input_address = 详细地址
-    # // input_postcode = 邮编
-    # // input_mobile = 手机号
-    # // input_email = 邮箱
-    # print("____________________++++++++++++++++++++++++++++++++++++++++++++")
     input_realname = request.json.get('input_realname')
     addrs_ssq = request.json.get('addrs_ssq')
     input_address = request.json.get('input_address')
@@ -209,10 +203,74 @@ def addrs_oooo():
     return jsonify(ret)
 
 
-@user_blu.route("/user/leave_maessage")
-def leave_maessage():
+@user_blu.route("/user/leave_message")
+def leave_message():
     # 我的留言
-    return render_template("index/leave_maessage.html")
+    return render_template("index/leave_message.html")
+
+
+@user_blu.route("/user/leave_message_ooo", methods=["POST"])
+def leave_message_ooo():
+    user_mobile = session.get("mobile")
+
+    # 拿到form表单提交的数据  https://www.cnblogs.com/zhou--fei/p/7678025.html
+    form_date = request.form.to_dict()
+    # request_dict = eval(form_date.keys()[0])
+    msg_type = form_date.get('msg_type')
+    msg_title = form_date.get('msg_title')
+    msg_content = form_date.get('msg_content')
+    f = request.files.get("message_img")
+    try:
+        if f:
+            # print(f.filename)
+            # 为了防止多个用户上传的图片名字相同，需要将用户的图片计算出一个随机的用户名，防止冲突
+            file_hash = hashlib.md5()
+            file_hash.update((f.filename + time.ctime()).encode("utf-8"))
+            file_name = file_hash.hexdigest() + f.filename[f.filename.rfind("."):]
+
+            # 将路径改为static/upload下
+            path_file_name = "./static/image/" + file_name
+
+            # 用新的随机的名字当做图片的名字
+            f.save(path_file_name)
+
+            # 将这个图片上传到七牛云
+            qiniu_avatar_url = upload_image_to_qiniu(path_file_name, file_name)
+
+            # 修改数据库中用户的头像链接（注意，图片时不放在数据库中的，数据库中存放的图片的名字或者路径加图片名）
+            user_mes = User_message()
+            user_mes.user_files_url = qiniu_avatar_url
+            user_mes.user_grade = msg_type
+            user_mes.user_mobile = user_mobile
+            user_mes.user_title = msg_title
+            user_mes.user_message = msg_content
+            db.session.add(user_mes)
+            db.session.commit()
+            ret = {
+                "errno": 0,
+                "errmsg": user_mes.user_files_url
+            }
+        # 如果没有上传图片，也可以保存留言信息
+        else:
+            user_mes = User_message()
+            user_mes.user_grade = msg_type
+            user_mes.user_mobile = user_mobile
+            user_mes.user_title = msg_title
+            user_mes.user_message = msg_content
+            db.session.add(user_mes)
+            db.session.commit()
+
+            ret = {
+                "errno": 0,
+                "errmsg": 'ok'
+            }
+            return jsonify(ret)
+    except:
+        ret = {
+            "errno": 905,
+            "errmsg": '留言上传失败'
+        }
+    return jsonify(ret)
 
 
 @user_blu.route("/user/my_collect")

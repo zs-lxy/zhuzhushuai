@@ -56,7 +56,7 @@
                                                                        style="vertical-align:middle;"></a>】
                 {%else%}
                 <a class="top-logout" href="/passport/log_out">退出</a>  <span class="vip" style="display: none;"></span>
-                <p>您好, <a href="/user/homepage">{{user}}</a></p>
+                <p>您好, <a href="/user/homepage">{{user.nick_name}}</a></p>
                 {%endif%}
 
             <dd class="my-order">
@@ -405,10 +405,10 @@
         </dl>
         <dl>
             <dt>个人信息管理</dt>
-            <dd><a href="/user/alter_user_info" target="main_frame">修改个人资料</a></dd>
+            <dd><a href="/user/alter_user_info" target="main_frame">上传头像</a></dd>
             <dd><a href="/user/alter_password" target="main_frame">修改密码</a></dd>
             <dd><a href="/user/addrs" target="main_frame">收货地址</a></dd>
-            <dd><a href="/user/leave_maessage" target="main_frame">我的留言</a></dd>
+            <dd><a href="/user/leave_message" target="main_frame">我的留言</a></dd>
             <dd><a href="/user/my_collect" target="main_frame">我的收藏</a></dd>
         </dl>
         <dl>

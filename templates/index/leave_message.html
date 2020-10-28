@@ -10,6 +10,9 @@
     <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">
     <link href="/static/index/css/user_clips.css" rel="stylesheet" type="text/css">
     <link href="/static/index/css/layer.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/index/js/saved_resource"></script>
+    <script type="text/javascript" src="/static/index/js/jq.from.main.js"></script>
+
     <!--    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">-->
 
 </head>
@@ -24,8 +27,7 @@
             <h5><span>我的留言</span></h5>
             <div class="blank"></div>
             <div class="blank"></div>
-            <form action="user.php" method="post" enctype="multipart/form-data" name="formMsg"
-                  onsubmit="return submitMsg()">
+            <form class="pic_info">
                 <style type="text/css">
                     .order_lists tr {
                         height: 30px;
@@ -54,11 +56,12 @@
                     </tr>
                     <tr>
                         <td width="20%" align="right">主题：</td>
-                        <td><input name="msg_title" type="text" size="30" class="inputBg"></td>
+                        <td><input name="msg_title" id="me_title" type="text" size="30" class="inputBg"></td>
                     </tr>
                     <tr>
                         <td width="20%" valign="top" align="right">留言内容：</td>
-                        <td><textarea name="msg_content" cols="50" rows="4" class="B_blue" wrap="virtual"></textarea>
+                        <td><textarea id="me_center" name="msg_content" cols="50" rows="4" class="B_blue"
+                                      wrap="virtual"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -87,6 +90,45 @@
     </div>
 </div>
 
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+
+    $(function () {
+        $(".pic_info").submit(function (e) {
+            // 阻止表单默认提交行为
+
+            e.preventDefault();
+            //TODO 上传头像
+            // 模拟表单的提交
+            $(this).ajaxSubmit({
+                url: '/user/leave_message_ooo',
+                type: 'post',
+                headers: {
+                    'X-CSRFToken': getCookie('csrf_token')
+                },
+
+                success: function (resp) {
+                    if (resp.errno == '0') {
+                        // `上传头像`成功
+                        // 获取上传头像的完整的url地址
+                        alert('ok')
+                    } else {
+                        // `上传头像`失败
+                        alert(resp.errmsg);
+                    }
+                }
+            })
+
+
+        })
+    });
+
+
+</script>
 
 
 </body>

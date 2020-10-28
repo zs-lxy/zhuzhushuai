@@ -5,18 +5,22 @@ function getCookie(name) {
 
 
 $(function () {
-    $("#btn2").submit(function (e) {
-        // 阻止表单默认提交行为
-        e.preventDefault();
-
+    $(".input_sub").click(function (e) {
+        var nick_name = $("#nick_name").val();
+        var sex = $("radio[name=sex]:checked").val()
+        var avatar = $("#avatar").val()
+        params = {
+            "nick_name": nick_name,
+            "sex": sex,
+            "avatar": avatar
+        }
         //TODO 上传头像
         // 模拟表单的提交
-        $(this).ajaxSubmit({
+        $.ajax({
             url: '/user/user_avatar',
             type: 'post',
-            headers: {
-                'X-CSRFToken': getCookie('csrf_token')
-            },
+            contentType: "application/json",
+            data: JSON.stringify(params),
             success: function (resp) {
                 if (resp.errno == '0') {
                     // `上传头像`成功
@@ -34,6 +38,7 @@ $(function () {
             }
         })
 
-
     })
-});
+
+
+})

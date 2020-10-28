@@ -11,139 +11,90 @@
     <link href="/static/index/css/user_clips.css" rel="stylesheet" type="text/css">
     <link href="/static/index/css/layer.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/static/index/js/saved_resource"></script>
-    <script type="text/javascript" src="/static/index/js/pic.js"></script>
-
-    <!--    <link href="/static/index/css/top.css" rel="stylesheet" type="text/css">-->
+    <script type="text/javascript" src="/static/index/js/jq.from.main.js"></script>
 
 </head>
 <body>
+
+
 <div class="user_box">
     <div class="u_header">
-
 
         <div class="box_right">
 
 
             <link href="/static/index/css/style.css" rel="stylesheet" type="text/css">
             <script type="text/javascript" src="/static/index/js/utils.js"></script>
-            <script type="text/javascript">
-                var bonus_sn_empty = "请输入您要添加的红包号码！";
-                var bonus_sn_error = "您输入的红包号码格式不正确！";
-                var email_empty = "请输入您的电子邮件地址！";
-                var email_error = "您输入的电子邮件地址格式不正确！";
-                var old_password_empty = "请输入您的原密码！";
-                var new_password_empty = "请输入您的新密码！";
-                var confirm_password_empty = "请输入您的确认密码！";
-                var both_password_error = "您现两次输入的密码不一致！";
-                var msg_blank = "不能为空";
-                var no_select_question = "- 您没有完成密码提示问题的操作";
-            </script>
-            <style type="text/css">
-                #user-profile {
-                    border: 4px solid #f1faff;
-                    background-color: #fff;
-                }
 
-                #user-profile tr {
-                    height: 30px;
-                    line-height: 30px;
-                    vertical-align: middle;
-                }
-
-                #user-profile tr td {
-                    height: 25px;
-                    line-height: 25px;
-                    vertical-align: middle;
-                    padding: 2px 5px 2px 5px;
-                }
-
-            </style>
             <div id="user-profile'">
                 <div class="blank"></div>
-                <table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#dddddd">
-                    <tbody>
-                    <tr>
-                        <td width="28%" bgcolor="#FFFFFF" align="right">昵 称：当前昵称</td>
-                        <td width="72%" bgcolor="#FFFFFF" align="left">
-                            <input type="text" name="sex" id="nick_name">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="28%" bgcolor="#FFFFFF" align="right">性　别：</td>
-                        <td width="72%" bgcolor="#FFFFFF" align="left"><input type="radio" name="sex" value="baomi"
-                                                                              checked="checked"
-                        >
-                            保密&nbsp;&nbsp;
-                            <input type="radio" class="gender" name="sex" value="MAN">
-                            男&nbsp;&nbsp;
-                            <input type="radio"class="gender" name="sex" value="WOMAN">
-                            女&nbsp;&nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h3>头像设置</h3>
-                            <div class="form-group">
-                                <label class="label01">当前图像：</label>
-                                <img style="width: 200px;height: 200px; " src="/static/index/picture/weixin.png"
-                                     alt="用户图片" class="now_user_pic">
-                            </div>
-                            <div class="form-group">
-                                <label>上传图像：</label>
-                                <input type="file" name="avatar" id="avatar" class="input_file">
-                            </div>
+                <form class="pic_info">
+                    <h3>头像设置</h3>
+                    <div class="form-group">
+                        <label class="label01">当前图像：</label>
+                        <img style="height: 250px ; width: 250px" src="{{ user.avatar_url }}" alt="用户图片" class="now_user_pic">
+                    </div>
+                    <div class="form-group">
+                        <label>上传图像：</label>
+                        <input type="file" name="avatar" class="input_file">
+                    </div>
 
-                            <div class="form-group">
-                                <input type="submit" value="保 存" class="input_sub" id="btn2">
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-
+                    <div class="form-group">
+                        <input type="submit" value="保 存" class="input_sub">
+                    </div>
+                </form>
             </div>
 
-
+        </div>
         </div>
     </div>
-</div>
+</body>
+
+
 <script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
 
     $(function () {
-        $("#btn2").click(function () {
-            var nick_name = $("#nick_name").val();
+        $(".pic_info").submit(function (e) {
+            // 阻止表单默认提交行为
+            e.preventDefault();
+            //TODO 上传头像
+            // 模拟表单的提交
+            $(this).ajaxSubmit({
 
-            var gender = $(".gender:checked").val();
+                url: '/user/user_avatar',
+                type: 'post',
+                headers: {
+                    'X-CSRFToken': getCookie('csrf_token')
+                },
 
-            par = {
-                "nick_name": nick_name,
-                "gender": gender
-            }
-            $.ajax({
-                type: "post",
-                dataType: "json",
-                url: "/user/user_avatar",
-                data: JSON.stringify(par),
-                contentType: "application/json",
                 success: function (resp) {
                     if (resp.errno == '0') {
-                        alert(resp.errmsg);
-                        // window.location.href = '/'
+                        // `上传头像`成功
+                        // 获取上传头像的完整的url地址
+                        var avatar_url = resp.avatar_url;
+                        // 设置页面上用户头像img的src属性
+                        // $(".now_user_pic").attr("src", avatar_url);
+                        // // 设置父窗口中用户头像img的src属性
+                        // $(".user_center_pic>img", parent.document).attr("src", avatar_url);
+                        // $(".user_login>img", parent.document).attr("src", avatar_url);
                     } else {
+                        // `上传头像`失败
                         alert(resp.errmsg);
-                        // window.location.reload()
                     }
-
                 }
             })
-        })
 
-    })
+
+        })
+    });
 
 
 </script>
-</body>
 </html>
 
 

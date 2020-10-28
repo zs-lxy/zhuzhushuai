@@ -110,7 +110,7 @@ button::-moz-focus-inner{ border:0; padding:0; margin:0; }
 	color: rgb(195, 0, 0); padding-top: 4px;
 }
 .log_form td i {
-	background: url("http://www.tonlion.com/themes/images/cart.png") no-repeat left -223px; width: 22px; height: 20px; display: none;
+	background: url("/static/index/picture/cart.png") no-repeat left -223px; width: 22px; height: 20px; display: none;
 }
 .log_form td i.erro {
 	background-position: -41px -223px;
@@ -206,7 +206,7 @@ button::-moz-focus-inner{ border:0; padding:0; margin:0; }
 	overflow:hidden
 }
 .g-top .top-home i.house,.g-top .top-go-home i.house {
-	background:url(http://www.tonlion.com/themes/tonlion/img/home_ico.png) no-repeat;
+	background:url("") no-repeat;
 	position:absolute;
 	top:8px;
 	left:18px;
@@ -266,7 +266,7 @@ button::-moz-focus-inner{ border:0; padding:0; margin:0; }
 	line-height:0
 }
 .user-panel .login-info,.user-panel .my-order,.user-panel .my-cart {
-	background:url(http://www.tonlion.com/themes/tonlion/img/H_top.png?20140706) no-repeat right -414px
+	background:url() no-repeat right -414px
 }
 .user-panel .my-sign,.user-panel .my-sign a {
 	font-weight:700;
@@ -650,7 +650,7 @@ button::-moz-focus-inner{ border:0; padding:0; margin:0; }
 .user-panel .vip0,.user-panel .vip1,.user-panel .vip2,.user-panel .vip3,.user-panel .vip4,.user-panel .vip5 {
 	width:30px;
 	height:13px;
-	background:url(http://www.tonlion.com/themes/tonlion/img/H_top.png?20140706) no-repeat;
+	background:url() no-repeat;
 	border-radius:2px;
 	font-size:10px;
 	color:#fff;
