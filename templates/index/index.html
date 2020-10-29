@@ -402,8 +402,8 @@
             </dd>
             <dd class="my-cart">
                 <div class="min-cart">
-                    <div class="min-cart-btn" id="js-min-cart"><a href="flow.html" title="查看购物车"><i></i><a
-                            href="flow.html" bi="top2_b_1_5_1">购物车</a> <b class="arrow"></b>
+                    <div class="min-cart-btn" id="js-min-cart"><a href="/index/flow" title="查看购物车"><i></i><a
+                            href="/index/flow" bi="top2_b_1_5_1">购物车</a> <b class="arrow"></b>
                         <div class="cart-count"><span class="cart-count-wrap"><em id="js-total-num">0 </em></span></div>
                     </div>
                     <div class="cart-count-bottom"></div>
@@ -951,14 +951,15 @@
                 <div class="pure-u-1-6">
                     <div class="pro first">
                         <div class="pro-img">
-                            <a href="/templates/goods-{{pro.id}}.html"><img
+
+                            <a href="index/goods/{{pro.dress_code}}"><img
                                     src="{{pro.dress_img_url}}"
                                     alt="	{{pro.dress_brand}} " class="goodsimg" width="235"
                                     height="235" style="display: inline;"></a>
 
                         </div>
-                        <div class="pro-name"><a href="/templates/goods-{{pro.id}}.html"
-                                                 title="	{{pro.info}} ">{{pro.info}}</a>
+                        <div class="pro-name"><a href="index/goods/{{pro.dress_code}}"
+                                                 title="	{{pro.info}} ">{{pro.dress_info}}</a>
                         </div>
                         <div class="pro-price"><!--<span>￥</span>--><big> {{pro.dress_price}}</big>
                             <del>{{pro.dress_price}}</del>

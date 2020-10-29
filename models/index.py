@@ -7,10 +7,8 @@ class Product(db.Model):  # 货号表
     __tablename__ = "product"
 
     id = db.Column(db.Integer, primary_key=True)  # 货品编号
-    dress_code = db.Column(db.Integer, nullable=False)  # 服装条码
+    dress_code = db.Column(db.Integer, nullable=False)  # 服装版型
     dress_brand = db.Column(db.String(256), nullable=False)  # 品牌名
-    dress_color = db.Column(db.String(256), nullable=False)  # 服装颜色
-    dress_size = db.Column(db.String(256), nullable=False)  # 服装尺寸
     dress_info = db.Column(db.String(512), nullable=False)  # 服装信息
     dress_price = db.Column(db.String(64), nullable=False)  # 单价
     dress_img_url = db.Column(db.String(256), nullable=False)  # 产品图片/显示在首页的
@@ -18,6 +16,21 @@ class Product(db.Model):  # 货号表
     dress_status = db.Column(db.String(256), nullable=False)  # 服装状态(是否有货)
     one_category_id = db.Column(db.Integer, default=200)  # 一级分类
     two_category_id = db.Column(db.Integer, nullable=False)  # 二级分类
+
+
+class Color(db.Model):
+    '''颜色'''
+    # 根据服装版型  确定款式， 这个款式都有什么颜色
+    __tablename__ = "color"
+
+    id = db.Column(db.Integer, primary_key=True)  # id/
+    code = db.Column(db.Integer, nullable=False)  # 服装版型
+    yanse = db.Column(db.String(256), nullable=False)  # 衣服颜色
+    s = db.Column(db.String(256), nullable=False)  # 服装尺寸 m号
+    m = db.Column(db.String(256), nullable=False)  # 服装尺寸 m号
+    x = db.Column(db.String(256), nullable=False)  # 服装尺寸 m号
+    xl = db.Column(db.String(256), nullable=False)  # 服装尺寸 m号
+    xxl = db.Column(db.String(256), nullable=False)  # 服装尺寸 m号
 
 
 class Category(db.Model):
@@ -29,38 +42,6 @@ class Category(db.Model):
     grop_name = db.Column(db.String(64), nullable=False)  # 分类名
     type_name = db.Column(db.String(64), nullable=False)  # 类型名
     two_category_id = db.Column(db.Integer, default=False)  # 服装类型分类
-
-
-class Supplier(db.Model):
-    '''供应商'''
-    __tablename__ = 'supplier'
-
-    id = db.Column(db.Integer, primary_key=True)  # id
-    factory_number = db.Column(db.Integer, nullable=False)  # 厂号
-    factory_name = db.Column(db.String(64), nullable=False)  # 厂名
-    factory_person = db.Column(db.String(64), nullable=False)  # 联系人
-    factory_phone = db.Column(db.Integer, nullable=False)  # 电话
-    factory_address = db.Column(db.String(64), nullable=False)  # 地址
-
-
-class Pro_Sup(db.Model):
-    """中间表"""
-    __tablename__ = "pro_sup"
-    category_id = db.Column(db.Integer, db.ForeignKey('product.id'), primary_key=True)
-    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'), primary_key=True)
-
-
-class Supply(db.Model):
-    '''供应'''
-
-    __tablename__ = 'supply'
-
-    id = db.Column(db.Integer, primary_key=True)  # id
-    dress_code = db.Column(db.Integer, nullable=False)  # 服装条码
-    factory_number = db.Column(db.Integer, nullable=False)  # 厂号
-    pricing = db.Column(db.Integer, nullable=False)  # 定价
-    supply_num = db.Column(db.Integer, nullable=False)  # 供应数量
-    supply_date = db.Column(db.DateTime, default=datetime.now)  # 供应日期
 
 
 class User(db.Model):
@@ -95,3 +76,49 @@ class User_message(db.Model):
     user_title = db.Column(db.String(100), nullable=True)  # 留言的标题
     user_files_url = db.Column(db.String(100), nullable=True)  # 留言的标题
     user_message = db.Column(db.String(512), nullable=True)  # 留言内容
+
+
+class Flow(db.Model):
+    '''购物车'''
+
+    __tablename__ = 'flow'
+    id = db.Column(db.Integer, primary_key=True)  # id
+    uid = db.Column(db.Integer)  # user 的id
+    goods_id = db.Column(db.Integer)  # 商品 的id
+    num = db.Column(db.Integer, default=1)  # 数量
+    color = db.Column(db.String(11), nullable=True)  # 颜色
+    size = db.Column(db.String(11), nullable=True)  # 尺码
+    create_time = db.Column(db.DateTime, default=datetime.now)  # 创建时间
+    update_time = db.Column(db.DateTime, default=datetime.now)  # 更新时间
+
+
+class Supplier(db.Model):
+    '''供应商'''
+    __tablename__ = 'supplier'
+
+    id = db.Column(db.Integer, primary_key=True)  # id
+    factory_number = db.Column(db.Integer, nullable=False)  # 厂号
+    factory_name = db.Column(db.String(64), nullable=False)  # 厂名
+    factory_person = db.Column(db.String(64), nullable=False)  # 联系人
+    factory_phone = db.Column(db.Integer, nullable=False)  # 电话
+    factory_address = db.Column(db.String(64), nullable=False)  # 地址
+
+
+class Pro_Sup(db.Model):
+    """中间表"""
+    __tablename__ = "pro_sup"
+    category_id = db.Column(db.Integer, db.ForeignKey('product.id'), primary_key=True)
+    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'), primary_key=True)
+
+
+class Supply(db.Model):
+    '''供应'''
+
+    __tablename__ = 'supply'
+
+    id = db.Column(db.Integer, primary_key=True)  # id
+    dress_code = db.Column(db.Integer, nullable=False)  # 服装条码
+    factory_number = db.Column(db.Integer, nullable=False)  # 厂号
+    pricing = db.Column(db.Integer, nullable=False)  # 定价
+    supply_num = db.Column(db.Integer, nullable=False)  # 供应数量
+    supply_date = db.Column(db.DateTime, default=datetime.now)  # 供应日期
