@@ -1,0 +1,633 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/index/css/layer.css">
+    <meta name="Generator" content="ECSHOP v2.7.3">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+
+    <title>购物流程Big_ormosia 大红豆官网 - 大红豆服饰官方购物商城 - Powered by Big_ormosia</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="animated_favicon.gif" type="image/gif">
+    <script type="text/javascript" src="/static/index/js/saved_resource"></script>
+    <link href="/static/index/css/cart.css" rel="stylesheet" type="text/css">
+
+
+    <script type="text/javascript">
+        var _adwq = _adwq || [];
+        _adwq.push(['_setAccount', 'v70nb']);
+        _adwq.push(['_setDomainName', '.tonlion.com']);
+        _adwq.push(['_trackPageview']);
+    </script>
+    <script type="text/javascript" src="/static/index/js/adw.js?adwa=v70nb"></script>
+
+
+</head>
+<body>
+<div class="login_box" id="imgBox">
+    <a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">
+        <div class="gb"></div>
+    </a>
+
+    <div class="login">
+        <ul class="log_box">
+            <li class="nav0 selected0" id="#log_box_li0" onclick="LI0(0)"></li>
+            <li class="nav1" id="#log_box_li1" onclick="LI0(1)"></li>
+        </ul>
+        <div class="tab_block">
+            <form name="pl_form_popup_login" id="pl_form_popup_login" action="" method="post">
+                <table class="log_form">
+                    <tbody>
+                    <tr>
+                        <th>账户名：</th>
+                        <td>
+                            <input name="user_name" class="text_name" id="user_name" style="color: rgb(164, 164, 164);"
+                                   type="text" autocomplete="off">
+                            <span id="pl_user_name_info"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>密码：</th>
+                        <td><input name="password" class="text_name" id="passwd" type="password">
+                            <span id="pl_password1_info"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td><input class="che" type="checkbox" checked="checked" value="1">
+                            <b> 7天内免登录</b></td>
+                    </tr>
+
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td><input class="button dl" type="button" onclick="login_submit()" value="登录"><a class="mm"
+                                                                                                          href="user/get_password.html">忘记密码？</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <!--<div class="other_log">
+             <h3>使用合作伙伴账号登录唐狮：</h3>
+             <a class="qq" href="user/qq.html"></a>
+             <a class="sina" href="user/weibo.html"></a>
+             <a class="zfb" href="user/alipay.html"></a>
+             <div id="ucdata" style="display:none;" ></div>
+            </div>-->
+        </div>
+        <div class="tab_block" style="display: none;">
+            <form name="pl_form_popup_register" method="post">
+                <table class="log_form">
+                    <tbody>
+                    <tr>
+                        <th>账户名：</th>
+                        <td>
+                            <input name="email" class="text_name" id="email" style="color: rgb(153, 153, 153);"
+                                   onfocus="if(this.value=='邮箱/手机号') this.value='';this.style.color='#333'"
+                                   onblur="if(this.value=='') {this.value='邮箱/手机号';this.style.color='#999999'}"
+                                   type="text" size="8" maxlength="50" value="邮箱/手机号">
+                            <span class="erro" id="email_info"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>设置密码：</th>
+                        <td><input name="password" class="text_name" id="password" type="password">
+                            <span class="erro" id="password_info"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>确认密码：</th>
+                        <td><input name="confirm_password" class="text_name" id="confirm_password" type="password"><span
+                                class="erro" id="confirm_password_info"></span></td>
+                    </tr>
+                    <!--<tr>
+                    <th>验证码：</th>
+                    <td><input name="captcha" class="text_name" id="captcha" style="width: 80px;" type="text">
+                    <img style="margin-top: -6px; vertical-align: middle; cursor: pointer;" onclick="this.src='captcha.php?'+Math.random()" alt="captcha" src="captcha.php?1652692555">
+                    <span id="captcha_info"></span>
+                    </td>
+                    </tr>-->
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td>
+                            <input class="button dl" onclick="reg_submit()" type="button" value="注册">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td><input name="agreement" id="agreement" type="checkbox" checked="checked" value="1"><b>
+                            我已看过并接受《<a href="article/info/6.html" target="_blank">用户协议</a>》</b>
+                            <span id="agreement_info"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/index/js/top_login.js"></script>
+<div class="cart-top">
+    <div class="cart-top-wrap">
+        <div class="cart-logo">
+            <a href="/" class="head_logo">
+                <img src="../../logo.png" alt=""></a>
+        </div>
+        <div class="cart-title"><a href="/index/flow" target="_blank">
+            <h1 class="title-goods-list">购物车</h1></a>
+            <div class="login-info" id="js-login-info">
+                {%if not user%}
+                <div id="append_parent"></div>
+
+                啦啦啦，欢迎来到红豆购物商城！ <a href="javascript:;" class="top-login" id="open_login">登录</a>|<a href="javascript:;"
+                                                                                                   class="top-regiter"
+                                                                                                   id="open_reg">注册</a>
+                | <a href="show-Login_pc_code_101187163_htt.html"><img src="/static/index/picture/qq_login.png"
+                                                                       style="vertical-align:middle;"></a>】
+                {%else%}
+                <a class="top-logout" href="/passport/log_out">退出</a> <span class="vip" style="display: none;"></span>
+                <p>您好, <a href="/user/homepage">{{user.nick_name}}</a></p>
+                {%endif%}
+            </div>
+        </div>
+        <div class="cart-step-3">
+            <div class="cart-step-ico"></div>
+            <ul>
+                <li><em class="red">我的购物车</em></li>
+                <li>填写核对订单信息</li>
+                <li>成功提交订单</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/index/js/Common.js"></script>
+<script type="text/javascript" src="/static/index/js/layer.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="http://www.tonlion.com/js/tonlion/skin/png.js"></script><![endif]-->
+<script language="javascript">
+    var addressNums = "0";
+    var product_weight = "";
+    var product_amount = "";
+
+    function getConsigneeChecked() {
+        $("#addr_list input").each(
+            function () {
+                if ($(this).attr("checked")) {
+                    $("#orderCosigneeId").attr({"value": $(this).attr("value")})
+
+                }
+            }
+        );
+    }
+
+    /***************************/
+    var setQuantity = {
+        min: 1,
+        /***当最大库存小于10的时候，max就等于最大库存****/
+        max: 10,
+        /*******/
+        reg: function (x) {
+            return new RegExp("^[1-9]\\d*$").test(x);
+        },
+        amount: function (obj, mode) {
+            var x = $(obj).val();
+            if (this.reg(x)) {
+                if (mode) {
+                    x++;
+                } else {
+                    x--;
+                }
+            } else {
+                alert("请输入0-9的数字！");
+                $(obj).val(1);
+                $(obj).focus();
+            }
+            return x;
+        },
+        reduce: function (obj, id) {
+            var x = this.amount(obj, false);
+            if (x >= this.min) {
+                changeGoodsNumber(x, id);
+                //$(obj).val(x);
+            } else {
+                $(obj).val(1);
+                $(obj).focus();
+            }
+        },
+        add: function (obj, id) {
+            var x = this.amount(obj, true);
+            alert(x);
+            if (x <= this.max) {
+                changeGoodsNumber(x, id);
+                //$(obj).val(x);
+            } else {
+                $(obj).val(this.max);
+                $(obj).focus();
+            }
+        },
+        modify: function (obj) {
+            var x = $(obj).val();
+            if (x < this.min || x > this.max || !this.reg(x)) {
+                alert("请输入0-9的数字！");
+                $(obj).val(1);
+                $(obj).focus();
+            }
+
+        }
+    }
+
+    function changeGoodsNumber(number, rec_id) {
+        //////更新购物车数据，并重新加载数据
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "flow.php",
+            data: "step=changeNumber&rec_id=" + rec_id + "&number=" + number,
+            success: function (msg) {
+
+                if (msg.error > 0) {
+                    alert(msg.message);
+                } else {
+                    $("#js-goods-container").html(msg.content)
+                    $("#js-order-total").html(msg.content_total)
+                }/* */
+            }
+        });
+    }
+</script>
+
+
+<div class="blank"></div>
+<div class="container-bg-wrap">
+    <div class="container-wrap">
+
+        <div class="cart-wrapper clearfix">
+            <div class="checkout_sub" style="">
+                <div id="js-consignee">
+
+                    <div class="title-bar">
+                        <a class="j_consignee_add blue" href="javascript:void(0);" id="otherAddress"
+                           style="display:none">使用其它地址</a>
+                        <h2>1.填写收货地址</h2>
+
+                    </div>
+                    <div class="checkout-box">
+                        <div class="consignee-list fix-radio clearfix" id="addr_list" style="display:none">
+
+                        </div>
+                        <div class="consignee-edit " id="address_form">
+                            <form action="user_address.php" name="myAddress" id="myAddress">
+                                <table class="edit-form">
+                                    <tr>
+                                        <td>
+                                            <p>收货人 : {{user.name}}</p>
+                                            <p>联系电话 : {{user.mobile}}</p>
+                                            <p>收货地址 : {{user.address}}</p>
+                                            <p>详细地址 : {{user.address_info}}</p>
+
+                                        </td>
+
+
+                                    </tr>
+                                    <td>
+                                        <div class="btns clearfix">
+                                            <input type="hidden" name="act" id="input_act" value="">
+                                            <input type="hidden" name="old_id" id="input_old_id" value="">
+                                            <a class="j_consignee_update btn-ok" href="javascript:void(0);"
+                                               id="saveAddress">确认收货人信息</a>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                    </tbody></table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout_sub" style="">
+                <div id="js-payment">
+                    <div class="checkout_title" id="pay_tag">
+                        <div class="title-bar">
+                            <h2>2.配送方式</h2>
+                            <span class="fl" style="display:none" id="wl_div"><a href="javascript:void(0);"
+                                                                                 id="edit_but_pay"
+                                                                                 class="edit_but blue j_open_btn"
+                                                                                 style="">[修改]</a></span>
+                        </div>
+                    </div>
+                    <div class="checkout-box">
+
+                        <div id="pay_delivery_return">
+                            <div id="pay_no_select"></div>
+
+                        </div>
+
+                        <div id="pay_delivery_set_box">
+                            <!-- <dl class="pay_delivery_set fix-radio" id="pay_list">
+                                 <dt>支付方式</dt>
+                                 <dd>
+                                     <ul class="delivery ul_pay_list ul_delivery_area">
+                                         <li><label for="payment_1"><input id="payment_1" class="payment_select_radio" type="radio" name="payment" value="1" checked="checked"> 在线支付</label><span class="pay_tip">可使用支付宝，财付通，工行、招行、建行等银行的网银或信用卡支付</span>
+                                         </li>
+                                         <li><label for="payment_3"><input id="payment_3" class="payment_select_radio" type="radio" name="payment" value="3"> 银行汇款</label><span class="pay_tip">支持邮局、工行、招行、建行等银行汇款支付</span>
+                                         </li>
+                                         <li><label for="payment_2"><input id="payment_2" class="payment_select_radio" type="radio" name="payment" value="2"> 货到付款</label><span class="pay_tip">先验货后付款，现金支付</span>
+                                         </li>
+                                     </ul>
+
+                                 </dd>
+                             </dl>-->
+
+                            <dl class="" id="">
+
+                                <p id='zt' date="中通快递">中通</p>
+                                <p id='sf' date="顺丰快递">顺丰</p>
+
+
+                            </dl>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout_sub" style="">
+                <div id="js-goods-container">
+                    <div class="title-bar">
+                        <h2>3.商品清单</h2>
+
+                        <div class="fl"><a href="flow.php" class="blue back-sheet">[返回购物车，修改订单商品]</a></div>
+                    </div>
+
+                    <script language="javascript">
+                        function deletCartgoods(rec_id) {
+                            if (confirm('您确实要把该商品移出购物车吗？')) {
+                                /////调取
+                                $.ajax({
+                                    type: "post",
+                                    dataType: "json",
+                                    url: "flow.php",
+                                    data: "step=drop_cart_goods&rec_id=" + rec_id,
+                                    success: function (msg) {
+
+                                        if (msg.error == 0) {
+                                            _adwq.push(['_setDataType', 'delete']);
+                                            _adwq.push(['_setCustomer', msg.content.user_id]);
+                                            _adwq.push(['_setItem', msg.content.goods_sn, msg.content.goods_name, msg.content.goods_price, msg.content.goods_number, msg.content.catid, msg.content.cat_name
+                                            ]);
+                                            _adwq.push(['_trackTrans']);
+
+                                            ///
+                                            window.location.href = 'flow.php?step=drop_goods&id=' + rec_id;
+                                        }
+                                    }
+                                });
+                                // 触发删除购物车数据提交 - 固定值 - 必填项
+                            }
+
+                        }
+                    </script>
+                </div>
+                <div class="list-footer-info clearfix">
+                    <div class="sale-panel">
+                        <div id="js-coupon"></div>
+                        <div id="js-full-sale"></div>
+                        <div id="js-mpea"></div>
+                        <div id="js-dm-card"></div>
+                    </div>
+                    <div class="cart-count" id="js-order-total">
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="checkout_sub" style="">
+                <div class="invoice-message">
+                    <div class="title-bar">
+                        <h2>4.发票/留言</h2>
+                    </div>
+                    <div class="checkout-box">
+                        <div id="js-invoice">
+                            <div class="checkout-sub-title">
+                                <i class=" j_open_btn  ico_close"></i>
+                                <h3 class=" j_open_btn">发票</h3>
+                            </div>
+                        </div>
+                        <div id="js-message">
+                            <div class="checkout-sub-title">
+                                <i class=" j_open_btn  ico_close"></i>
+                                <h3 class=" j_open_btn">订单留言</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+            <div id="js-simple-total">
+
+
+                <div class="cart-notice simple-total">
+                    <div class="notice-wrap clearfix">
+                        <div class="notice-body">
+                            <table>
+                                <tbody id="total_info">
+
+                                <tr>
+                                    <th>
+                                        <div class="price-th">应付金额：</div>
+                                    </th>
+                                    <td><span class="price18" id="show_tP">{{yingfu}}</span></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span class="arrow-b-r"></span>
+                </div>
+            </div>
+
+            <div class="bottom-btns clearfix" style="">
+                <div class="bottom-tip">
+                    <ul id="js-bottom-tip" style="display:none;"></ul>
+                </div>
+
+                <div id="js-action-post">
+                    <a class="go-payment">去支付</a>
+
+                    <form action="flow.php?step=done" method="post" name="order_comf" id="order_comf">
+                        <input type="hidden" name="order_sn" id="order_sn" value="">
+                        <input type="hidden" name="coupon_sn" id="coupon_sn" value="">
+                        <input type="hidden" name="surplus" id="surplus" value="">
+                        <input type="hidden" name="consignee" id="consignee" value="">
+                        <input type="hidden" name="wuliu" id="wuliu" value="">
+                    </form>
+                </div>
+                <div id="js-action-waiting" style="display:none;">
+                    <div class="waiting-loading"><i></i>系统处理中，请稍后…</div>
+                </div>
+
+            </div>
+
+            <div class="page-loading" style="display: none;"><img src="._files/page_loading.gif" width="48" height="48">
+            </div>
+
+        </div>
+        <script language="javascript">
+            var num = 0;
+            var currnt_add_id = 0;
+            var currnt_wl_id_flag = 0;
+            var currnt_wl_id = 0;
+            var coupon_sn = "";
+            $(function () {
+                if (coupon_sn) {
+                    checkCoupon(coupon_sn);
+                }
+                $('#addr_list div[class="cons-name"]').bind('click', function () {
+                    var os = $(this).children('input:radio[name="address_id"]').val();
+                    $('input:radio[name="address_id"]').each(function () {
+                        $(this).attr("checked", false)
+                        $(this).parent().parent('li').removeClass("selected ");
+                    });
+                    var os = $(this).children('input:radio[name="address_id"]').attr("checked", "checked");
+                    $(this).parent('li').addClass("selected ");
+                    currnt_add_id = 0;
+                    currnt_wl_id_flag = 0;
+                    currnt_wl_id = 0;
+                    showInputValue();
+                    delTr();
+                });
+                showInputValue();
+                $("#otherAddress").click(function () {
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: "userAddress.php",
+                        data: "step=otherAddr&num=" + num,
+                        success: function (msg) {
+                            currnt_add_id = 0;
+                            currnt_wl_id_flag = 0;
+                            currnt_wl_id = 0;
+                            $("#address_form").html(msg);
+                            $("#address_form").show();
+                            $("#pay_delivery_return").show();
+                            $("#pay_delivery_set_box").hide();
+                            $("#wl_div").hide();
+                            $("#pay_no_select").html("请选择或填写收货地址")
+                            delTr();
+                        }
+                    })
+                });
+                /**保存物流清单***/
+                $("#pay_delivery_btn").click(function () {
+                    var wuliuN = $('input:radio[name="express_id"]:checked').val();
+                    if (wuliuN == null) {
+                        $("#edit_but_pay").hide();
+                        layer.tips('请选择配送方式', this, 3)
+                        $(this).focus();
+
+                    } else {
+                        var data_info = $('input:radio[name="express_id"]:checked').attr("data-info");
+                        currnt_wl_id = wuliuN;
+                        currnt_wl_id_flag = wuliuN;
+                        $("#pay_delivery_return").show();
+                        $("#edit_but_pay").show();
+                        $("#wl_div").show();
+                        $("#pay_delivery_set_box").hide();
+                        $("#pay_no_select").html("你选择的快递是：" + data_info);
+                        var user_info = $('input:radio[name="address_id"]:checked').attr("data-info");
+                        addTr(user_info, data_info);
+
+                    }
+
+                });
+
+                function addTr(user_info, data_info) {
+                    delTr();
+                <
+                    !--$("#total_info").append('<tr><th><div class="price-th">收货地址：</div></th><td><span  >' + user_info + '</span></td> </tr>');
+                    -- >
+                    $("#total_info").append('<tr><th><div class="price-th">物流信息：</div></th><td><span  >' + data_info + '</span></td> </tr>');
+                }
+
+                function delTr() {
+                    $('#total_info tr').each(function (index) {
+                        if (index > 0) {
+                            $(this).remove();
+                        }
+                    });
+
+                }
+
+                /**************/
+                $("#edit_but_pay").click(function () {
+                    $(this).parent().hide();
+                    $("#pay_delivery_return").hide();
+                    $("#pay_delivery_set_box").show();
+                });
+                $(".go-payment").click(function () {
+                    eachAddrList();
+                    if (currnt_add_id < 1) {
+                        layer.tips('请选择或填写收货地址', this, 3)
+                        $(this).focus();
+                    } else if (currnt_wl_id < 1) {
+                        layer.tips('请选择配送方式', this, 3)
+                        $(this).focus();
+                    } else {
+
+                        $("#consignee").val(currnt_add_id);
+                        $("#wuliu").val(currnt_wl_id);
+                        $("#coupon_sn").val(coupon_sn);
+                        $("#order_comf").submit();
+                    }
+
+                });
+            })
+
+            ////
+
+            function eachAddrList() {
+                $("#addr_list input:radio").each(function () {
+                    if (this.checked) {
+                        currnt_add_id = $(this).attr("value");
+
+                    }
+                });
+            }
+
+            function showInputValue() {
+                eachAddrList();
+
+                if (currnt_add_id < 1) {
+                    $("#pay_delivery_return").show();
+                    $("#pay_delivery_set_box").hide();
+                } else if (currnt_wl_id_flag < 1) {
+                    $("#pay_delivery_return").hide();
+                    $("#pay_delivery_set_box").show();
+                    ////
+                }
+            }
+        </script>
+
+
+    </div>
+</div>
+<div class="blank"></div>
+
+<script type="text/javascript" src="/static/index/js/soLazy-min.js"></script>
+<script type="text/javascript" src="/static/index/js/easydialog.min.js"></script>
+
+
+<iframe style="width: 1px; border: 0px none; position: absolute; left: -100px; top: -100px; height: 1px;"
+        src="http://et.emarbox.com/_adw.gif?adwu=16030795283697235731&amp;adws=1603079528369723573121&amp;adwft=1603079528&amp;adwpt=1603967050&amp;adwv=21&amp;adweu=&amp;adwsw=1536&amp;adwsh=864&amp;adwmc=4032704353&amp;adwlh=http%3A%2F%2Fwww.tonlion.com%2Fflow.php%3Fstep%3Dcheckout&amp;adwr=http%3A%2F%2Fwww.tonlion.com%2Fflow.php&amp;adwsc=24-bit&amp;adwl=zh-CN&amp;adwj=0&amp;adwp=http%3A&amp;adwfv=0&amp;adwac=0&amp;adwa=v70nb&amp;adwe=false&amp;adwcr=&amp;encoding=UTF-8&amp;drid=&amp;pgi=&amp;ver=1.1&amp;adwt=%E8%B4%AD%E7%89%A9%E6%B5%81%E7%A8%8B_TONLION%20%E5%94%90%E7%8B%AE%E5%AE%98%E7%BD%91%20-%20%E5%94%90%E7%8B%AE%E6%9C%8D%E9%A5%B0%E5%AE%98%E6%96%B9%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%20-%20Powered%20by%20Tonlion&amp;kwd=&amp;dst="
+        id="emar_box_pv"></iframe>
+</body>
+</html>

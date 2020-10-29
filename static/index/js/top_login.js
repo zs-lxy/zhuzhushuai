@@ -28,7 +28,7 @@ function open_login() {
 
 function checkLogin(text) {
     $.ajax({
-        url: " check_login.php",
+        url: "/index/order_form_ooo",
         type: 'post',
         dataType: 'json',
         data: {},
@@ -49,9 +49,9 @@ function checkLogin(text) {
                     if (coupon_no) {
                         param = "&N=" + coupon_no;
                     }
-                    window.location.href = "flow.php?step=checkout" + param;
+                    window.location.href = "/" ;
                 } else {
-                    window.location.href = "user.php";
+                    window.location.href = "/";
                 }
             }
         }

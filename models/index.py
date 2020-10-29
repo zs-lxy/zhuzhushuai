@@ -82,14 +82,18 @@ class Flow(db.Model):
     '''购物车'''
 
     __tablename__ = 'flow'
+
     id = db.Column(db.Integer, primary_key=True)  # id
     uid = db.Column(db.Integer)  # user 的id
     goods_id = db.Column(db.Integer)  # 商品 的id
     num = db.Column(db.Integer, default=1)  # 数量
     color = db.Column(db.String(11), nullable=True)  # 颜色
     size = db.Column(db.String(11), nullable=True)  # 尺码
+    prices = db.Column(db.String(64), nullable=False)  # 一次的总价
     create_time = db.Column(db.DateTime, default=datetime.now)  # 创建时间
     update_time = db.Column(db.DateTime, default=datetime.now)  # 更新时间
+    product_id = db.Column(db.Integer, db.ForeignKey("product.id"))  # 商品id
+    product = db.relationship("Product", backref="flow")  #和商品表关联
 
 
 class Supplier(db.Model):

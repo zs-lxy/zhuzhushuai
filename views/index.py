@@ -54,12 +54,15 @@ def goods_info():
     user_mobile = session.get("mobile")  # 手机号
     # 根据手机号 查询user对象
     user = db.session.query(User).filter(User.mobile == user_mobile).first()
+    # 查询商品对象
+    pr = db.session.query(Product).filter(Product.dress_code == g_code).first()
     if user:
         # 创建购物车对象
         flow = Flow()
         flow.uid = user.id
         flow.num = num
         flow.goods_id = g_code
+        flow.prices = float(num) * float(pr.dress_price)
         flow.color = tes1
         flow.size = tes2
         print("flow.uid:", flow.uid, "num:", num, "g_code:", g_code)
@@ -96,12 +99,41 @@ def goods_info():
 def flow():
     # 判断没登录的话 跳转首页
     user_mobile = session.get("mobile")
+    # 用户对象
     user = db.session.query(User).filter(User.mobile == user_mobile).first()
 
-    # 根据id 查看购物车
-    goods = db.session.query(Flow).filter(Flow.uid == user.id).first()
+    # 根据id 查看购物车对象
+    goods = db.session.query(Flow).filter(Flow.uid == user.id).all()
+    # 查询该id 下单 所有物品的个数
+    counts = db.session.query(Flow).filter(Flow.uid == user.id).count()
+    # 应付金额
+    yingfu = 0
+    for good in goods:
+        pri = float(good.prices) * float(good.num)
+        yingfu += pri
+        print("-============================")
+        print(good.product.dress_img_url)
 
     if user:
-        return render_template('index/flow.html', user=user, goods=goods)
+        return render_template('index/flow.html', user=user, goods=goods, counts=counts, yingfu=yingfu)
+    else:
+        return render_template('/')
+
+
+@index_blu.route('/index/order_form')
+def order_form():
+    # 判断没登录的话 跳转首页
+    user_mobile = session.get("mobile")
+    # 用户对象
+    user = db.session.query(User).filter(User.mobile == user_mobile).first()
+    # 查询用户对应的购物车对象
+    goods = db.session.query(Flow).filter(Flow.uid == user.id).all()
+    # 应付金额
+    yingfu = 0
+    for good in goods:
+        pri = float(good.prices) * float(good.num)
+        yingfu += pri
+    if user:
+        return render_template('index/order_form.html', user=user, yingfu=yingfu)
     else:
         return render_template('/')
