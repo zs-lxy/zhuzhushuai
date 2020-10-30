@@ -16,7 +16,6 @@ def index():
 
     user_mobile = session.get('mobile')
 
-
     # 查询12个男生服装
     man_dress = db.session.query(Product).filter(Product.one_category_id == 100).order_by(
         -Product.dress_date).limit(12)
@@ -24,13 +23,14 @@ def index():
     woman_dress = db.session.query(Product).filter(Product.one_category_id == 200).order_by(
         -Product.dress_date).limit(
         12)
-    # 查询该id 下单 所有物品的个数
     user = db.session.query(User).filter(User.mobile == user_mobile).first()
-    counts = db.session.query(Flow).filter(Flow.uid == user.id).count()
-
 
     if user:
-        return render_template('index/index.html', man_dress=man_dress,counts=counts, woman_dress=woman_dress, user=user)
+        # 查询该id 下单 所有物品的个数
+
+        counts = db.session.query(Flow).filter(Flow.uid == user.id).count()
+        return render_template('index/index.html', man_dress=man_dress, counts=counts, woman_dress=woman_dress,
+                               user=user)
     else:
         return render_template('index/index.html', man_dress=man_dress, woman_dress=woman_dress)
 
