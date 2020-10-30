@@ -96,33 +96,9 @@ class Flow(db.Model):
     product = db.relationship("Product", backref="flow")  #和商品表关联
 
 
-class Supplier(db.Model):
-    '''供应商'''
-    __tablename__ = 'supplier'
-
-    id = db.Column(db.Integer, primary_key=True)  # id
-    factory_number = db.Column(db.Integer, nullable=False)  # 厂号
-    factory_name = db.Column(db.String(64), nullable=False)  # 厂名
-    factory_person = db.Column(db.String(64), nullable=False)  # 联系人
-    factory_phone = db.Column(db.Integer, nullable=False)  # 电话
-    factory_address = db.Column(db.String(64), nullable=False)  # 地址
 
 
-class Pro_Sup(db.Model):
-    """中间表"""
-    __tablename__ = "pro_sup"
-    category_id = db.Column(db.Integer, db.ForeignKey('product.id'), primary_key=True)
-    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'), primary_key=True)
 
 
-class Supply(db.Model):
-    '''供应'''
 
-    __tablename__ = 'supply'
 
-    id = db.Column(db.Integer, primary_key=True)  # id
-    dress_code = db.Column(db.Integer, nullable=False)  # 服装条码
-    factory_number = db.Column(db.Integer, nullable=False)  # 厂号
-    pricing = db.Column(db.Integer, nullable=False)  # 定价
-    supply_num = db.Column(db.Integer, nullable=False)  # 供应数量
-    supply_date = db.Column(db.DateTime, default=datetime.now)  # 供应日期
