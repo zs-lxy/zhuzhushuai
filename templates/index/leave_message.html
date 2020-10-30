@@ -116,6 +116,10 @@
                         // `上传头像`成功
                         // 获取上传头像的完整的url地址
                         alert('ok')
+
+                        // location.reload()
+                        location.href = '/user/homepage'
+
                     } else {
                         // `上传头像`失败
                         alert(resp.errmsg);
