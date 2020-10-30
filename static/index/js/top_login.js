@@ -230,7 +230,7 @@ $(function () {
             success: function (resp) {
                 if (resp.errno == '0') {
                     alert(resp.errmsg);
-                    window.location.href = '/'
+                    location.reload()
                 } else {
                     alert(resp.errmsg);
                     // window.location.reload()

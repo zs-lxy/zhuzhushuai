@@ -393,7 +393,7 @@
                                                                        style="vertical-align:middle;"></a>】
                 {%else%}
                 <a class="top-logout" href="/passport/log_out">退出</a>  <span class="vip" style="display: none;"></span>
-                <p>您好, <a href="/user/homepage">{{user}}</a></p>
+                <p>您好, <a href="/user/homepage">{{user.nick_name}}</a></p>
                 {%endif%}
             </dd>
 
@@ -404,7 +404,7 @@
                 <div class="min-cart">
                     <div class="min-cart-btn" id="js-min-cart"><a href="/index/flow" title="查看购物车"><i></i><a
                             href="/index/flow" bi="top2_b_1_5_1">购物车</a> <b class="arrow"></b>
-                        <div class="cart-count"><span class="cart-count-wrap"><em id="js-total-num">0 </em></span></div>
+                        <div class="cart-count"><span class="cart-count-wrap"><em id="js-total-num">{{counts}} </em></span></div>
                     </div>
                     <div class="cart-count-bottom"></div>
                     <span class="outline"></span>

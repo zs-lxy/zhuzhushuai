@@ -13,8 +13,9 @@ def index_zhuye():
 @index_blu.route("/")
 def index():
     # 看看session里面有没有用户,判断是否登录
-    user = session.get('nick_name')
-    print(user)
+
+    user_mobile = session.get('mobile')
+
 
     # 查询12个男生服装
     man_dress = db.session.query(Product).filter(Product.one_category_id == 100).order_by(
@@ -23,9 +24,13 @@ def index():
     woman_dress = db.session.query(Product).filter(Product.one_category_id == 200).order_by(
         -Product.dress_date).limit(
         12)
+    # 查询该id 下单 所有物品的个数
+    user = db.session.query(User).filter(User.mobile == user_mobile).first()
+    counts = db.session.query(Flow).filter(Flow.uid == user.id).count()
+
 
     if user:
-        return render_template('index/index.html', man_dress=man_dress, woman_dress=woman_dress, user=user)
+        return render_template('index/index.html', man_dress=man_dress,counts=counts, woman_dress=woman_dress, user=user)
     else:
         return render_template('index/index.html', man_dress=man_dress, woman_dress=woman_dress)
 
@@ -111,8 +116,7 @@ def flow():
     for good in goods:
         pri = float(good.prices) * float(good.num)
         yingfu += pri
-        print("-============================")
-        print(good.product.dress_img_url)
+        yingfu = float('%.2f' % yingfu)
 
     if user:
         return render_template('index/flow.html', user=user, goods=goods, counts=counts, yingfu=yingfu)
@@ -133,7 +137,34 @@ def order_form():
     for good in goods:
         pri = float(good.prices) * float(good.num)
         yingfu += pri
+        yingfu = float('%.2f' % yingfu)
     if user:
         return render_template('index/order_form.html', user=user, yingfu=yingfu)
     else:
         return render_template('/')
+
+
+@index_blu.route('/index/order_ooo', methods=["POST"])
+def order_ooo():
+    # 拿到地址  (也可以数据库查询)
+    name = request.json.get('name')
+    mobile = request.json.get('mobile')
+    addr = request.json.get('addr')
+    addr_info = request.json.get('addr_info')
+    zt = request.json.get('zt')
+    sf = request.json.get('sf')
+
+    user = db.session.query(User).filter(User.mobile == mobile).first()
+
+    flow = db.session.query(Flow).filter(Flow.uid == user.id).first()
+    # 库存表
+    # 查到对应的颜色
+    color = db.session.query(Color).filter(Color.yanse == flow.color).first()
+
+    ret = {
+        'errno': 0,
+        'errmsg': "%s%s库存-1.....!" % (color.yanse, flow.size)
+
+    }
+
+    return jsonify(ret)

@@ -62,8 +62,8 @@
 
                     <tr>
                         <th>&nbsp;</th>
-                        <td><input class="button dl" type="button" onclick="login_submit()" value="登录"><a class="mm"
-                                                                                                          href="user/get_password.html">忘记密码？</a>
+                        <td><input class="button dl" id="login_lqy" type="button" value="登录"><a class="mm"
+                                                                                                href="javascript:;">忘记密码？</a>
                         </td>
                     </tr>
                     </tbody>
@@ -283,10 +283,10 @@
                                 <table class="edit-form">
                                     <tr>
                                         <td>
-                                            <p>收货人 : {{user.name}}</p>
-                                            <p>联系电话 : {{user.mobile}}</p>
-                                            <p>收货地址 : {{user.address}}</p>
-                                            <p>详细地址 : {{user.address_info}}</p>
+                                            <p id="p1" date="{{user.name}}">收货人 : {{user.name}}</p>
+                                            <p id="p2" date="{{user.mobile}}">联系电话 : {{user.mobile}}</p>
+                                            <p id="p3" date="{{user.address}}">收货地址 : {{user.address}}</p>
+                                            <p id="p4" date="{{user.address_info}}">详细地址 : {{user.address_info}}</p>
 
                                         </td>
 
@@ -344,8 +344,8 @@
 
                             <dl class="" id="">
 
-                                <p id='zt' date="中通快递">中通</p>
-                                <p id='sf' date="顺丰快递">顺丰</p>
+                                <p id='p5' date="中通快递">中通</p>
+                                <p id='p6' date="顺丰快递">顺丰</p>
 
 
                             </dl>
@@ -400,8 +400,6 @@
                         <div id="js-dm-card"></div>
                     </div>
                     <div class="cart-count" id="js-order-total">
-
-
 
 
                     </div>
@@ -461,7 +459,7 @@
                 </div>
 
                 <div id="js-action-post">
-                    <a class="go-payment">去支付</a>
+                    <a class="go-payment" id="qzf">去支付</a>
 
                     <form action="flow.php?step=done" method="post" name="order_comf" id="order_comf">
                         <input type="hidden" name="order_sn" id="order_sn" value="">
@@ -630,4 +628,45 @@
         src="http://et.emarbox.com/_adw.gif?adwu=16030795283697235731&amp;adws=1603079528369723573121&amp;adwft=1603079528&amp;adwpt=1603967050&amp;adwv=21&amp;adweu=&amp;adwsw=1536&amp;adwsh=864&amp;adwmc=4032704353&amp;adwlh=http%3A%2F%2Fwww.tonlion.com%2Fflow.php%3Fstep%3Dcheckout&amp;adwr=http%3A%2F%2Fwww.tonlion.com%2Fflow.php&amp;adwsc=24-bit&amp;adwl=zh-CN&amp;adwj=0&amp;adwp=http%3A&amp;adwfv=0&amp;adwac=0&amp;adwa=v70nb&amp;adwe=false&amp;adwcr=&amp;encoding=UTF-8&amp;drid=&amp;pgi=&amp;ver=1.1&amp;adwt=%E8%B4%AD%E7%89%A9%E6%B5%81%E7%A8%8B_TONLION%20%E5%94%90%E7%8B%AE%E5%AE%98%E7%BD%91%20-%20%E5%94%90%E7%8B%AE%E6%9C%8D%E9%A5%B0%E5%AE%98%E6%96%B9%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%20-%20Powered%20by%20Tonlion&amp;kwd=&amp;dst="
         id="emar_box_pv"></iframe>
 </body>
+<script>
+    $(function () {
+        $("#qzf").click(function () {
+
+            var name = $("#p1").attr('date');
+            var mobile = $("#p2").attr('date');
+            var addr = $("#p3").attr('date');
+            var addr_info = $("#p4").attr('date');
+            var zt = $("#p5").attr('date');
+            var sf = $("#p6").attr('date');
+            par = {
+                "name": name,
+                "mobile": mobile,
+                "addr": addr,
+                "addr_info": addr_info,
+                "zt": zt,
+                "sf": sf
+            }
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: "/index/order_ooo",
+                data: JSON.stringify(par),
+                contentType: "application/json",
+                success: function (resp) {
+                    if (resp.errno == '0') {
+                        alert(resp.errmsg);
+                        window.location.href ='/'
+                    } else {
+                        alert(resp.errmsg);
+                        // window.location.reload()
+                    }
+
+                }
+            })
+        })
+
+    })
+
+
+</script>
 </html>
