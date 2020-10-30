@@ -19,7 +19,6 @@ $(function () {
 
 
 function open_login() {
-    alert(2)
     /////需要检查是否已经登录过了
     // showLoginBox("imgBox");
     // LI0(0);
@@ -286,6 +285,7 @@ $(function () {
 
 // 生成一个图片验证码的编号，并设置页面中图片验证码img标签的src属性
 function generateImageCode() {
+
     // 1. 生成一个编号
     // 严格一点的使用uuid保证编号唯一， 不是很严谨的情况下，也可以使用时间戳
     imageCodeId = generateUUID();
